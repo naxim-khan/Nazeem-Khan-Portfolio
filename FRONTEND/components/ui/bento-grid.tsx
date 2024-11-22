@@ -1,13 +1,15 @@
 "use client";
 import { useState, useRef } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-import Player, { LottieRefCurrentProps } from "lottie-react"; // Import LottieRefCurrentProps for typing
+import dynamic from "next/dynamic"; // Import dynamic from next/dynamic
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
 
+// Dynamically import Player with ssr: false
+const Player = dynamic(() => import("lottie-react"), { ssr: false });
 
 export const BentoGrid = ({
   className,
@@ -51,8 +53,8 @@ export const BentoGridItem = ({
   const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
   const [copied, setCopied] = useState(false);
 
-  // Ref for the Lottie player to control the animation manually, typed as LottieRefCurrentProps
-  const playerRef = useRef<LottieRefCurrentProps>(null);
+  // Ref for the Lottie player to control the animation manually
+  const playerRef = useRef<any>(null);
 
   const handleCopy = () => {
     const text = "nazeemkhanpk@gmail.com";
@@ -61,9 +63,9 @@ export const BentoGridItem = ({
 
     // Play the animation once
     if (playerRef.current) {
-      playerRef.current.stop(); 
-      playerRef.current.goToAndStop(0, true); 
-      playerRef.current.play(); 
+      playerRef.current.stop();
+      playerRef.current.goToAndStop(0, true);
+      playerRef.current.play();
     }
 
     // Reset the copied state after 2 seconds
@@ -124,7 +126,7 @@ export const BentoGridItem = ({
             {title}
           </div>
 
-          {id === 2 &&  <GridGlobe />}
+          {id === 2 && <GridGlobe />}
 
           {id === 3 && (
             <div className="flex gap-1 lg:gap-4 w-fit h-full absolute -right-3 lg:-right-2">
