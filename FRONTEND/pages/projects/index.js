@@ -50,12 +50,12 @@ export default function projects() {
                         <button className={selectCategory === 'Node JS' ? 'active' : ''} onClick={() => handleCategoryChange('Node JS')}>Content</button>
                     </div>
 
-                    <div className="projects_cards">
+                    <div className="projects_cards_2">
                         {loading ? (
-                            <div className="flex flex-center wh_100"><Spinner /></div>
+                            <div className="flex_css flex-center_css wh_100_css"><Spinner /></div>
                         ) : (
                             filteredProjects.map((pro) => (
-                                <Link href={`/projects/${pro.slug}`} key={pro._id} className="procard">
+                                <Link href={`/projects/${pro.slug}`} key={pro._id} className="procard_2">
                                     <div className="proimgbox">
                                         <img src={pro.images?.[0] || '/img/noimage.png'} alt={pro.title} />
                                     </div>

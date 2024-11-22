@@ -77,11 +77,11 @@ export default function blogs() {
             <section className="tophero">
                 <div className="container_css">
                     <div className="toptitle">
-                        <div className="toptitlecont flex">
+                        <div className="toptitlecont flex_css">
                             <h1>Welcome to <span>Nazeem's Blogs</span></h1>
                             <p>I write about web Development, python and modern JavaScript frame works. The best articles, links and news related to web and mobile development </p>
                             <div className="subemail">
-                                <form className='flex'>
+                                <form className='flex_css'>
                                     <input type="text" placeholder='Search Blogs here...' />
                                     <button>Search</button>
                                 </form>
@@ -92,10 +92,10 @@ export default function blogs() {
                         <div className="container_css">
                             <div className="border"></div>
                             <div className="featuredposts">
-                                <div className="fetitle flex">
+                                <div className="fetitle flex_css">
                                     <h3>Featured Posts:</h3>
                                 </div>
-                                <div className="feposts flex">
+                                <div className="feposts flex_css">
                                     <Swiper
                                         slidesPerView={'auto'}
                                         freeMode={true}
@@ -134,7 +134,7 @@ export default function blogs() {
 
             <section className="populartegssec">
                 <div className="container_css">
-                    <div className="border"></div>
+                    <div className="border_css"></div>
                     <div className="populartegsdata">
                         <div className="fetitle">
                             <h3>Popular Tags: </h3>
@@ -205,7 +205,7 @@ export default function blogs() {
                         </div>
                         {/* for pagination */}
                         {publishedData.length === 0 ? ("") : (
-                            <div className="blogspaginationbtn flex flex-center mt-3 ">
+                            <div className="blogspaginationbtn flex_css flex-center_css mt-3_css ">
                                 <button onClick={() => { paginate(currentPage - 1) }} disabled={currentPage === 1}>Previous</button>
                                 {pageNumber.slice(Math.max(currentPage - 3, 0), Math.min(currentPage + 2, pageNumber.length)).map(number => (
                                     <button key={number}

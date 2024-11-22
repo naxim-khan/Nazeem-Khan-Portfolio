@@ -39,7 +39,7 @@ export default function gallery() {
             </div>
             <div className="gallerybtmphotos" id="galleryimages">
                 <div className="container_css">
-                    <div className="gbtmtitles text-center">
+                    <div className="gbtmtitles text-center_css">
                         <h3><span>01//</span> OUR PORTFOLIO</h3>
                         <h2>Nazeem's capture <span>All of your</span> <br /> beautiful memories</h2>
                     </div>

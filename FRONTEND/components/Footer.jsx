@@ -6,11 +6,11 @@ import { LiaBasketballBallSolid } from "react-icons/lia";
 export default function Footer() {
     return <>
         <footer className="footer">
-         <div className="footersec flex flex-center flex-col gap-2">
+         <div className="footersec flex_css flex-center_css flex-col_css gap-2_css">
             <div className="logo">
                 <img src="/img/logo.svg" alt="logo" />
             </div>
-            <div className="ul flex gap-2">
+            <div className="ul flex_css gap-2_css">
                 <li><Link href="/services">Services</Link></li>
                 <li><Link href="/services">Works</Link></li>
                 <li><Link href="/services">Resume</Link></li>

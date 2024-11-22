@@ -1,67 +1,93 @@
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import { IoMoonSharp } from "react-icons/io5";
-import { LuSun, LuSunMoon } from "react-icons/lu";
+import { LuSun } from "react-icons/lu";
+import { motion } from "framer-motion";
+import { CoolMode } from "@/components/magicui/cool-mode";
 
 export default function Header() {
-    // Dark Mode Toggle
-    const [darkMode, setDarkMode] = useState();
-    useEffect(()=>{
-        // check local storage for dak mode preference on initial load
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    const [darkMode, setDarkMode] = useState(false);
+    const [visible, setVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0); // Track the last scroll position
+
+    useEffect(() => {
+        // Check dark mode preference on initial load
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
         setDarkMode(isDarkMode);
-    },[])
+    }, []);
 
-    useEffect(()=>{
-        // apply dark mode styles when darkmode state changes
-        if(darkMode){
-            document.body.classList.add('dark');
-            localStorage.setItem('darkMode', true);
-        }else{
+    useEffect(() => {
+        // Apply dark mode styles when dark mode state changes
+        if (darkMode) {
+            document.body.classList.add("dark");
+            localStorage.setItem("darkMode", "true");
+        } else {
             document.body.classList.remove('dark');
-            localStorage.setItem('darkMode', false);
+            localStorage.setItem("darkMode", "false");
         }
-    },[darkMode])
+    }, [darkMode]);
 
-    // toggle darkmode function
-    const toggleDarkMode=()=>{
+    useEffect(() => {
+        // Handle scroll event to hide/show navbar
+        const handleScroll = () => {
+            if (window.scrollY > lastScrollY) {
+                // Scroll Down
+                setVisible(false);
+            } else {
+                // Scroll Up
+                setVisible(true);
+            }
+            setLastScrollY(window.scrollY); // Update last scroll position
+        };
+
+        // Add scroll event listener
+        window.addEventListener("scroll", handleScroll);
+
+        // Cleanup event listener
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [lastScrollY]);
+
+    const toggleDarkMode = () => {
         setDarkMode(!darkMode);
-    }
+    };
 
-    // navlist active
     const router = useRouter();
     const currentYear = new Date().getFullYear();
     const [clicked, setClicked] = useState(false);
-    const [activeLink, setActiveLink] = useState('/');
+    const [activeLink, setActiveLink] = useState("/");
 
-    const handleLinkClick = (link)=>{
-        // setActiveLink(link);
+    const handleLinkClick = (link) => {
         setClicked(false);
-        setMobile(false); // Close mobile menu after click
-    }
+    };
 
-    useEffect(()=>{
-        // update active link state when the page is reload
+    useEffect(() => {
         setActiveLink(router.pathname);
-    },[router.pathname])
+    }, [router.pathname]);
 
-    // mobile navbar
     const [mobile, setMobile] = useState(false);
-
-    const handleMobileOpen = () =>{
+    const handleMobileOpen = () => {
         setMobile(!mobile);
-    }
+    };
 
-    // close 
-    const handleMobileClose = (()=>{
+    const handleMobileClose = () => {
         setMobile(false);
-    })
-    return <>
-        <header>
-            <nav className="container_css m-auto max-w-[1400px] flex flex-sb justify-between">
-                <div className="logo flex ">
+    };
+
+    return (
+        <motion.header
+            initial={{ y: -100, opacity: 0 }}
+            animate={{
+                y: visible ? 0 : -100,
+                opacity: visible ? 1 : 0,
+            }}
+            transition={{ duration: 0.3 }}
+        >
+            <nav className="container_css m-auto_css max-w-[1400px] flex_css flex-sb_css justify-between_css">
+                <div className="logo flex_css ">
                     <Link href="/">
                        <img src={`/img/${darkMode ? 'logo':'logo'}.svg`} />
                     </Link>
@@ -69,8 +95,8 @@ export default function Header() {
                 </div>
 
                 {/* for large screens */}
-                <div className="navlist flex gap-2">
-                    <ul className="flex gap-2">
+                <div className="navlist flex_css gap-2_css">
+                    <ul className="flex_css gap-2_css">
                     <li>
                             <Link href='/' onClick={()=>handleLinkClick('/')} className={activeLink ==='/' ? 'active' : '' }>Home</Link>
                         </li>
@@ -94,8 +120,8 @@ export default function Header() {
                         </li>
                     </ul>
 
-                    <div className="darkmodetoggle" onClick={toggleDarkMode}>
-                        {darkMode ? <IoMoonSharp /> : <LuSun/>}
+                    <div className="darkmodetoggle" onClick={toggleDarkMode} >
+                        {darkMode ? <IoMoonSharp title="Switch to dark mode"/> : <LuSun title="Switch to light mode"/>}
                     </div>
                     <button><Link href='/'>Hire Me!</Link></button>
                     <div className="mobiletogglesvg" onClick={handleMobileOpen}>
@@ -105,12 +131,12 @@ export default function Header() {
 
                 {/* for small screens */}
                 <div className={mobile ? 'mobilenavlist active': 'mobilenavlist'}>
-                    <span onClick={handleMobileClose} className={mobile ? 'active':''}></span>
+                    <span onClick={handleMobileClose} className={mobile ? 'active ':''}></span>
                     <div className="mobilelogo">
                         <img src="/img/logo.svg" alt="logo" />
                         <h2>Nazeem</h2>
                     </div>
-                    <ul className="flex gap-1 flex-col flex-left mt-3" onClick={handleMobileClose}>
+                    <ul className="flex_css gap-1_css flex-col_css flex-left_css mt-3_css " onClick={handleMobileClose}>
                         <li>
                             <Link href='/' onClick={()=>handleLinkClick('/')} className={activeLink ==='/' ? 'active' : '' }>Home</Link>
                         </li>
@@ -137,7 +163,6 @@ export default function Header() {
                 </div>
 
             </nav>
-        </header>
-
-    </>
+        </motion.header>
+    );
 }

@@ -71,7 +71,7 @@ export default function Category() {
             <section className="tophero">
                 <div className="container_css">
                     <div className="toptitle">
-                        <div className="toptitlecont flex">
+                        <div className="toptitlecont flex_css">
                             <h1>Category <span>{category}</span></h1>
                         </div>
                     </div>
@@ -100,7 +100,7 @@ export default function Category() {
                                         <div className="lpostinfo">
                                             <h3><Link href={`/blogs/${blog.slug}`}>{blog.title}</Link></h3>
                                             <p>{stripMarkdown(blog.description)}</p>
-                                            <h4 className='flex'><img src="/img/nazeem.jpg" alt="nazeem khan" />by nazeem-khan</h4>
+                                            <h4 className='flex_css'><img src="/img/nazeem.jpg" alt="nazeem khan" />by nazeem-khan</h4>
                                         </div>
                                     </div>
                                 })}
@@ -112,7 +112,7 @@ export default function Category() {
 
             {/* for pagination */}
             {publishedData.length === 0 ? ("") : (
-                <div className="blogspaginationbtn flex flex-center mt-3 ">
+                <div className="blogspaginationbtn flex_css flex-center_css mt-3_css ">
                     <button onClick={() => { paginate(currentPage - 1) }} disabled={currentPage === 1}>Previous</button>
                     {pageNumber.slice(Math.max(currentPage - 3, 0), Math.min(currentPage + 2, pageNumber.length)).map(number => (
                         <button key={number}

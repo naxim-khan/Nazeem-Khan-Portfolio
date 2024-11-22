@@ -179,7 +179,7 @@ const BlogPage = () => {
      }
 
     if (loading) {
-        return <div className="flex flex-center wh_100"><Spinner /></div>
+        return <div className="flex_css flex-center_css wh_100_css"><Spinner /></div>
     }
 
     if (error) {
@@ -353,7 +353,7 @@ const BlogPage = () => {
                                         <img src={blogData.blog.images[0] || '/img/noimage.png'} alt={blogData.blog.title} />
                                     </div>
                                     <div className="slugbloginfopub">
-                                        <div className="flex gap-2">
+                                        <div className="flex_css gap-2_css">
                                             <div className="adminslug">
                                                 <img src='/img/nazeem.jpg' alt="nazeem khan" />
                                                 <span>By Nazeem</span>
@@ -402,7 +402,7 @@ const BlogPage = () => {
                                     <div className="blogslugtags">
                                         <div className="blogstegs">
                                             <h2>Tags:</h2>
-                                            <div className="flex flex-wrap gap-1">
+                                            <div className="flex_css flex-wrap_css gap-1_css">
                                                 {blogData && blogData.blog.tags.map((cat) => {
                                                     return <span key={cat}>{cat}</span>
                                                 })}
@@ -451,7 +451,7 @@ const BlogPage = () => {
                                                 value={newComment.contentpera}
                                                 onChange={(e) => setNewComment({ ...newComment, contentpera: e.target.value })}
                                             />
-                                            <div className="flex gap-2">
+                                            <div className="flex_css gap-2_css">
                                                 <button type="submit">Post Comment</button>
                                                 {messageOk && <p>{messageOk}</p>}
                                             </div>

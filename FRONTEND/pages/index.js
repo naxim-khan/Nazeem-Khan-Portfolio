@@ -1,4 +1,5 @@
-import Spinner from "@/components/Spinner";
+"use client";
+
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -7,11 +8,16 @@ import { FaGithub, FaInstagram, FaCalendarDay } from "react-icons/fa";
 import { FaFacebookF, FaGithubAlt, FaLinkedin, FaLinkedinIn, FaTwitter } from "react-icons/fa6";
 import { GoArrowUpRight } from 'react-icons/go';
 import { LuMedal } from "react-icons/lu";
+import Grid from "@/components/Grid";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import Experience from "@/components/Experience"
+import RecentProjects from "@/components/RecentProjects";
+
+// Recent Projects
+import { HyperText } from "@/components/magicui/hyper-text";
 
 
 export default function Home() {
-
-
   // active service background color
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -109,11 +115,9 @@ export default function Home() {
     return new Intl.DateTimeFormat('en-US', options).format(date);
   }
 
-
-
-
   return (
     <>
+      {/* D:\3_Web_Projects\PortfolioWork\React_ThreeJs\3d_Portfolio> */}
       <Head>
         <title>Nazeem Khan - Personal Portfolio</title>
         <meta name="description" content="nazeem khan- Personal Portfolio" />
@@ -122,36 +126,40 @@ export default function Home() {
       </Head>
 
       {/* hero section */}
-      <section className="hero">
+      <section className="hero bg-black-100 dark:bg-[#dedddc]">
+        <BackgroundBeams className="h-screen w-screen" />
         <div className="intro_text">
           <svg viewBox="0 0 1320 300">
-            <text x='50%' y='50%' text-anchor='middle' className="animate-stroke" data-aos='fade-right'>HI</text>
+            <text x='50%' y='50%' text-anchor='middle' className="animate-stroke" data-aos='fade-right'>HI </text>
+
           </svg>
         </div>
 
         <div className="container_css">
-          <div className="flex w-100">
+          <div className="flex_css w-100_css">
             <div className="heroinfoleft">
-              <span className="hero_sb_title" data-aos='fade-right'>I'm Nazeem Khan</span>
-              <h1 className="hero_title" data-aos='fade-left'>Full Stack Web Developer </h1>
-              <div className="hero_img_box heroimgbox " data-aos='flip-left' data-aos-easing='ease-out-cubic' data-aos-duration='2000' >
-                <img src="/img/nazeem.jpg" alt="Nazeem khan"  />
-              </div>
-              <div className="lead" data-aos='fade-up' >I break down complex user experience problems to create integrity focussed solution that connect billions of poeples</div>
+              <span className="hero_sb_title dark:text-[#414141] " data-ao='fade-right'>I'm Nazeem Khan </span>
+              <h1 className="hero_title bg-dot dark:text-[#2c2c2c]" data-ao='fade-left'>Full Stack Web Developer </h1>
+              
+                <div className="hero_img_box heroimgbox " data-aos='flip-left' data-aos-easing='ease-out-cubic' data-aos-duration='2000' >
+                  <img src="/img/nazeem.jpg" alt="Nazeem khan" />
+                </div>
+                
+              <div className="lead dark:text-[#4d4d4d]" data-ao='fade-up' >I break down complex user experience problems to create integrity focussed solution that connect billions of poeples</div>
               <div className="hero_btn_box" data-aos='fade-up'>
-                <Link href='/' download={'/img/resume.pdf'} className='download_cv' title="Download CV">Download CV <BiDownload /></Link>
+                <Link href='/' download={'/img/resume.pdf'} className='download_cv hover:dark:bg-[#4d4d4d]' title="Download CV">Download CV<BiDownload />  </Link>
                 <div className="subsocial">
                   <ul className="hero_social flex ">
-                    <li><a href="www.google.com/" target="_blank" title="visit my X profile"><FaTwitter /> </a></li>
+                    <li><a href="www.google.com/" className="dark:border-[#4d4d4d] border-[1px] border-[--main-site-color] dark:hover:bg-[#4d4d4d]" target="_blank" title="visit my X profile"><FaTwitter /> </a></li>
                   </ul>
                   <ul className="hero_social">
-                    <li><a href="www.google.com/" target="_blank" title="visit my LinkedIn profile"><FaLinkedinIn /> </a></li>
+                    <li><a href="www.google.com/" className="dark:border-[#4d4d4d] border-[1px] border-[--main-site-color] dark:hover:bg-[#4d4d4d]" target="_blank" title="visit my LinkedIn profile"><FaLinkedinIn /> </a></li>
                   </ul>
                   <ul className="hero_social">
-                    <li><a href="www.google.com/" target="_blank" title="visit my GitHub profile"><FaGithub /> </a></li>
+                    <li><a href="www.google.com/" className="dark:border-[#4d4d4d] border-[1px] border-[--main-site-color] dark:hover:bg-[#4d4d4d]" target="_blank" title="visit my GitHub profile"><FaGithub /> </a></li>
                   </ul>
                   <ul className="hero_social">
-                    <li><a href="www.google.com/" target="_blank" title="visit my FaceBook profile"><FaFacebookF /> </a></li>
+                    <li><a href="www.google.com/" className="dark:border-[#4d4d4d] border-[1px] border-[--main-site-color] dark:hover:bg-[#4d4d4d]" target="_blank" title="visit my FaceBook profile"><FaFacebookF /> </a></li>
                   </ul>
                 </div>
               </div>
@@ -164,26 +172,37 @@ export default function Home() {
               </div>
             </div>
           </div>
+
           {/* funfact text */}
-          <div className="funfect_area flex flex-sb">
-            <div className="funfect_item" data-aos='fade-left'>
-              <h3>3+</h3>
-              <h4>Year of <br /> Experience</h4>
+          <div className="funfect_area flex_css flex-sb_css">
+            <div className="funfect_item" >
+              <h3><HyperText className='' text="3+" animateOnLoad={true} /></h3>
+              <h4>Years of <br /> Experience</h4>
             </div>
-            <div className="funfect_item" data-aos='fade-left'>
-              <h3>20+</h3>
+            <div className="funfect_item" >
+              <h3 className="flex items-center justify-center"><HyperText className='' text="20" animateOnLoad={true} />+</h3>
               <h4>Projects <br /> Completed</h4>
             </div>
-            <div className="funfect_item" data-aos='fade-left'>
-              <h3>25+</h3>
+            <div className="funfect_item" >
+              <h3 className="flex items-center justify-center"><HyperText className='' text="25" animateOnLoad={true} />+</h3>
               <h4>Happy <br /> Costumers</h4>
             </div>
           </div>
+
+        </div>
+
+      </section>
+
+      {/* About Section  */}
+      <section className="about   bg-black-100 dark:bg-[#cecdcd]  p-5 h-fit max-h-fit" id="about">
+
+        <div className="container_css">
+          <Grid />
         </div>
       </section>
 
       {/* Services */}
-      <section className="services">
+      <section className=" services p-5 h-fit_css max-h-fit bg-black-100 dark:bg-[#dedddc]">
         <div className="container_css">
           <div className="services_titles">
             <h2>My Quality Services</h2>
@@ -212,10 +231,11 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* Projects */}
-      <section className="projects">
+      {/* <section className="projects ">
+
         <div className="container_css">
+
           <div className="project_titles">
             <h2>My Recent Works</h2>
             <p>Lorem ipsum dolor sit amet...</p>
@@ -228,30 +248,116 @@ export default function Home() {
             <button className={selectCategory === 'Node JS' ? 'active' : ''} onClick={() => handleCategoryChange('Node JS')}>Content</button>
           </div>
 
-          <div className="projects_cards">
+          <div className=" w-full  flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
+
             {loading ? (
               <div className="flex flex-center wh_100"><Spinner /></div>
             ) : (
               filteredProjects.slice(0, 4).map((pro) => (
-                <Link href={`/projects/${pro.slug}`} key={pro._id} className="procard">
-                  <div className="proimgbox">
-                    <img src={pro.images?.[0] || '/img/noimage.png'} alt={pro.title} />
-                  </div>
-                  <div className="procontentbox">
-                    <h2>{pro.title}</h2>
-                    <GoArrowUpRight />
-                  </div>
-                </Link>
+                <div className="w-[37rem]">
+                  
+
+                  <CardContainer className=" w-full h-full min-h-full min-w-full  dark:bg-slate-200  bg-black-100 p-5  rounded-[1rem]  m-0 ">
+                    <FlickeringGrid
+                      className="z-0 absolute inset-0 size-full rounded-[1rem]"
+                      squareSize={4}
+                      gridGap={6}
+                      color="#6208ff"
+                      maxOpacity={0.5}
+                      flickerChance={0.1}
+                    />
+                    <div className="bg-white/10 backdrop-blur-[3px]  size-full absolute rounded-[1rem]"></div>
+                    <CardBody href={`/projects/${pro.slug}`} key={pro._id} className="lg:min-h-[30.5rem] h-[28rem]  w-full px-4  ">
+                      
+                      <CardItem
+                        translateZ="50"
+                        className="text-2xl font-bold text-white dark:text-[#9500ff] mt-1"
+                      >
+                        {pro.title}
+                      </CardItem>
+                      <CardItem
+                        as="p"
+                        translateZ="60"
+                        className="text-neutral-400 text-lg max-w-sm mt-1 dark:text-slate-800 font-bold"
+                      >
+                        {pro.description.slice(0, 70) + "..."}
+                      </CardItem>
+
+                      <CardItem translateZ="100" className="w-full mt-4">
+                        <Image
+                          src={pro.images[0] || '/img/noimage.png'}
+                          height="1000"
+                          width="2000"
+                          className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                          alt="thumbnail"
+                        />
+
+                      </CardItem>
+
+                      <div className="flex justify-between w-full relative overflow-hidden min-h-fit  items-center flex-grow  mt-2 pb-0 ">
+                        <CardItem
+                          translateZ={20}
+                          as={Link}
+                          href={`/projects/${pro.slug}`}
+                          // target="__blank"
+                          className="px-4 py-2 rounded-xl text-lg  font-bold dark:text-[#9500ff] "
+                        >
+                          Details →
+                        </CardItem>
+                        <CardItem
+                          translateZ={20}
+
+                        >
+                          <Link href={pro.livepreview} target="_blank">
+                            
+                            <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
+                              <span className="absolute inset-0 overflow-hidden rounded-full">
+                                <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                              </span>
+                              <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 justify-center p-4">
+                                <span className="text-lg">
+                                  Live Preview
+                                </span>
+                                <svg
+                                  fill="none"
+                                  height="16"
+                                  viewBox="0 0 24 24"
+                                  width="16"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M10.75 8.75L14.25 12L10.75 15.25"
+                                    stroke="currentColor"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="1.5"
+                                  />
+                                </svg>
+                              </div>
+                              <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+                            </button>
+                          </Link>
+                        </CardItem>
+                      </div>
+                      
+
+                    </CardBody>
+                    <BorderBeam size={300} duration={12} delay={9} borderWidth={2} colorFrom={'#8750f7'} colorTo={'#2a1454'} />
+                  </CardContainer>
+                  
+                </div>
               ))
             )}
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <RecentProjects />
 
       {/* Experience study */}
-      <section className="exstudy">
-        <div className="container_css flex flex-left flex-sb">
-          <div className="experience">
+      < section className="bg-black-100 dark:bg-[#dedddc] p-5 h-fit max-h-fit" >
+        <div className="container_css ">
+          {/* <div className="experience">
             <div className="experience_title flex gap-1">
               <LuMedal />
               <h2>My Experience</h2>
@@ -275,12 +381,19 @@ export default function Home() {
                 <p>Full Stack Developer</p>
               </div>
             </div>
+          </div> */}
+          <div className=" mt-5 flex items-center justify-center w-full ">
+            <div className="experience_title flex gap-1">
+              <LuMedal />
+              <h2>My Experience</h2>
+            </div>
           </div>
+          <Experience className="bg- bg-blue-600" />
         </div>
-      </section>
+      </ section>
 
       {/* My Skills */}
-      <section className="myskills">
+      < section className="myskills bg-black-100 dark:bg-[#cecdcd]" >
         <div className="container_css">
           <div className="myskills_title">
             <h2>My Skills</h2>
@@ -292,7 +405,7 @@ export default function Home() {
                 <img src="/img/python.png" alt="python" />
                 <h3>92%</h3>
               </div>
-              <p className="text-center">Python Django</p>
+              <p className="text-center_css">Python Django</p>
             </div>
 
             <div className="mys_card">
@@ -300,7 +413,7 @@ export default function Home() {
                 <img src="/img/firebase.svg" alt="firebase" />
                 <h3>80%</h3>
               </div>
-              <p className="text-center">FireBase</p>
+              <p className="text-center_css">FireBase</p>
             </div>
 
             <div className="mys_card">
@@ -308,7 +421,7 @@ export default function Home() {
                 <img src="/img/mongodb.svg" alt="MongoDB" />
                 <h3>92%</h3>
               </div>
-              <p className="text-center">MongoDB</p>
+              <p className="text-center_css">MongoDB</p>
             </div>
 
             <div className="mys_card">
@@ -324,7 +437,7 @@ export default function Home() {
                 <img src="/img/react.svg" alt="React" />
                 <h3>92%</h3>
               </div>
-              <p className="text-center">React</p>
+              <p className="text-center_css">React</p>
             </div>
 
             <div className="mys_card">
@@ -336,10 +449,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </ section>
 
       {/* Recent Blogs */}
-      <section className="recentblogs">
+      < section className="recentblogs bg-black-100 dark:bg-[#dedddc]" >
         <div className="container_css">
           <div className="myskills_title">
             <h2>Recent Blogs</h2>
@@ -353,7 +466,7 @@ export default function Home() {
                   <span>{blog.blogcategory[0]}</span>
                 </div>
                 <div className="re_bloginfo">
-                  <div className="re_topdate flex gap-1">
+                  <div className="re_topdate flex_css gap-1_css">
                     <div className="res_date">
                       <FaCalendarDay /> <span>{formatDate(new Date(blog.createdAt))}</span>
                     </div>
@@ -364,7 +477,7 @@ export default function Home() {
             })}
           </div>
         </div>
-      </section>
+      </ section>
 
     </>
   );
