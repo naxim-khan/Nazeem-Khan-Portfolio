@@ -4617,22 +4617,22 @@ header.sticky {
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ RESPONSIVE CSS         $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 
-@media screen and (max-width: 1612px) {
+@media screen and (max-width: 1412px) {
     .container_css {
-        /* border: 2px solid red; */
-        max-width: 1300px;
+        
+        max-width: 1200px;
     }
 
     .hero_title {
-        font-size: 65px;
+        font-size: 50px;
     }
 
     .hero_sb_title {
-        font-size: 28px;
+        font-size: 26px;
     }
 
     .lead {
-        font-size: 18px;
+        font-size: 15px;
     }
 
     .heroimageright {
@@ -4646,7 +4646,7 @@ header.sticky {
 
     .hero_img_box img {
         width: 100%;
-        height: 100%;
+        /* height: 100%; */
         margin-left: 0px;
         object-fit: cover;
     }
@@ -4716,10 +4716,10 @@ header.sticky {
         font-size: 25px;
     }
 
-    /* .hero_img_box {
-        width: 409px;
-        height: 424px;
-    } */
+    .hero_img_box {
+        width: 300px;
+        height: 300px;
+    }
 
     .rightcontinputs input,
     .rightcontinputs select {
@@ -5179,8 +5179,8 @@ header.sticky {
     }
 
     .hero_img_box {
-        width: 300px;
-        height: 300px;
+        width: 375px;
+        height: 400px;
     }
 
     .hero {
@@ -5291,8 +5291,8 @@ header.sticky {
 
 @media screen and (max-width: 410px) {
     .hero_img_box {
-        width: 300px;
-        height: 300px;
+        width: 315px;
+        height: 365px;
     }
 
     .hero {
