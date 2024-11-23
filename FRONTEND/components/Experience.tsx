@@ -6,7 +6,7 @@ import { Lens } from "./ui/lens";
 
 const Experience = () => {
   return (
-    <div className="py-20 w-full ">
+    <div className="py-0 w-full ">
       {/* <h1 className="heading">
         My <span className="text-purple">work experience</span>
       </h1> */}

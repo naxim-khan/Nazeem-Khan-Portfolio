@@ -344,6 +344,8 @@ img {
     --theme-change-main-hover-color: #bfbfbf; /* Lighter Gray for hover effects */
 }
 
+
+
 .container_css {
     max-width: 1300px;
     /* max-width: 1400px; */
@@ -918,6 +920,9 @@ header.sticky {
     opacity: 0.3;
 }
 
+.dark .threed-globe{
+    filter: grayscale(100%);
+}
 .dark .hero .intro_text svg text {
     stroke: var(--main-site-color);
     stroke-width: 0.8;
@@ -1139,7 +1144,7 @@ header.sticky {
     top: 0;
     width: 100vw;
     height: 110vh;
-    fill: #050709;
+    fill: #050125;
 }
 
 .preloader .preloader-heading {
@@ -1169,6 +1174,13 @@ header.sticky {
     text-transform: uppercase;
     z-index: 20;
 }
+
+@media screen and (max-width: 480px) { /* Target small mobile screens */
+    .preloader .preloader-heading .load-text {
+        font-size: 22px; /* Reduce font size */
+    }
+}
+
 
 .load-text span {
     -webkit-animation: loading 1s infinite alternate;
@@ -1701,7 +1713,7 @@ header.sticky {
     position: relative;
     border-radius: 25px;
     padding: 2rem 3.5rem;
-    background: #140c1c;
+    background: #1f013d;
     border: 1px solid transparent;
     margin-bottom: 15px;
     transition: 0.6s;
@@ -4605,9 +4617,10 @@ header.sticky {
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ RESPONSIVE CSS         $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 
-@media screen and (max-width: 1412px) {
+@media screen and (max-width: 1612px) {
     .container_css {
-        max-width: 1200px;
+        /* border: 2px solid red; */
+        max-width: 1300px;
     }
 
     .hero_title {
@@ -4627,8 +4640,8 @@ header.sticky {
     }
 
     .hero_img_box {
-        width: 450px;
-        height: 450px;
+        width: 400px;
+        height: 400px;
     }
 
     .hero_img_box img {
@@ -4703,10 +4716,10 @@ header.sticky {
         font-size: 25px;
     }
 
-    .hero_img_box {
+    /* .hero_img_box {
         width: 409px;
         height: 424px;
-    }
+    } */
 
     .rightcontinputs input,
     .rightcontinputs select {
@@ -5166,8 +5179,8 @@ header.sticky {
     }
 
     .hero_img_box {
-        width: 375px;
-        height: 400px;
+        width: 300px;
+        height: 300px;
     }
 
     .hero {
@@ -5278,8 +5291,8 @@ header.sticky {
 
 @media screen and (max-width: 410px) {
     .hero_img_box {
-        width: 315px;
-        height: 365px;
+        width: 300px;
+        height: 300px;
     }
 
     .hero {

@@ -1,14 +1,14 @@
 "use client";
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import dynamic from "next/dynamic"; // Import dynamic from next/dynamic
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBg";
-import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
 
-// Dynamically import Player with ssr: false
+// Dynamically import GridGlobe and Lottie Player
+const GridGlobe = dynamic(() => import("./GridGlobe"), { ssr: false });
 const Player = dynamic(() => import("lottie-react"), { ssr: false });
 
 export const BentoGrid = ({
@@ -52,9 +52,18 @@ export const BentoGridItem = ({
   const leftLists = ["ReactJS", "Express", "Typescript"];
   const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
   const [copied, setCopied] = useState(false);
+  const [canRender3D, setCanRender3D] = useState(false); // State to control 3D rendering
 
   // Ref for the Lottie player to control the animation manually
   const playerRef = useRef<any>(null);
+
+  useEffect(() => {
+    // Check if deviceMemory exists in navigator
+    const deviceMemory = (navigator as any).deviceMemory || 4; // Default to 4GB if unsupported
+    if (deviceMemory > 2) {
+      setCanRender3D(true); // Allow rendering 3D if memory > 2GB
+    }
+  }, []);  
 
   const handleCopy = () => {
     const text = "nazeemkhanpk@gmail.com";
@@ -77,7 +86,7 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
+        "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-lg dark:shadow-black-100/50 justify-between flex flex-col space-y-4",
         className
       )}
       style={{
@@ -126,7 +135,8 @@ export const BentoGridItem = ({
             {title}
           </div>
 
-          {id === 2 && <GridGlobe />}
+          {/* Conditionally render the 3D component */}
+          {id === 2 && canRender3D && <GridGlobe />}
 
           {id === 3 && (
             <div className="flex gap-1 lg:gap-4 w-fit h-full absolute -right-3 lg:-right-2">

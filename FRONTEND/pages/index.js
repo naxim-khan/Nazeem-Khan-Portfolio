@@ -126,7 +126,7 @@ export default function Home() {
       </Head>
 
       {/* hero section */}
-      <section className="hero bg-black-100 dark:bg-[#dedddc]">
+      <section className="hero bg-black-100 dark:bg-[#dedddc] ">
         <BackgroundBeams className="h-screen w-screen" />
         <div className="intro_text">
           <svg viewBox="0 0 1320 300">
@@ -135,8 +135,8 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="container_css">
-          <div className="flex_css w-100_css">
+        <div className="container_css ">
+          <div className="flex_css w-100_css flex items-center justify-center ">
             <div className="heroinfoleft">
               <span className="hero_sb_title dark:text-[#414141] " data-ao='fade-right'>I'm Nazeem Khan </span>
               <h1 className="hero_title bg-dot dark:text-[#2c2c2c]" data-ao='fade-left'>Full Stack Web Developer </h1>
@@ -147,19 +147,19 @@ export default function Home() {
                 
               <div className="lead dark:text-[#4d4d4d]" data-ao='fade-up' >I break down complex user experience problems to create integrity focussed solution that connect billions of poeples</div>
               <div className="hero_btn_box" data-aos='fade-up'>
-                <Link href='/' download={'/img/resume.pdf'} className='download_cv hover:dark:bg-[#4d4d4d]' title="Download CV">Download CV<BiDownload />  </Link>
+                <Link href='/' download={'/img/resume.pdf'} className='download_cv ' title="Download CV">Download CV<BiDownload />  </Link>
                 <div className="subsocial">
                   <ul className="hero_social flex ">
-                    <li><a href="www.google.com/" className="dark:border-[#4d4d4d] border-[1px] border-[--main-site-color] dark:hover:bg-[#4d4d4d]" target="_blank" title="visit my X profile"><FaTwitter /> </a></li>
+                    <li><a href="www.google.com/"  target="_blank" title="visit my X profile"><FaTwitter /> </a></li>
                   </ul>
                   <ul className="hero_social">
-                    <li><a href="www.google.com/" className="dark:border-[#4d4d4d] border-[1px] border-[--main-site-color] dark:hover:bg-[#4d4d4d]" target="_blank" title="visit my LinkedIn profile"><FaLinkedinIn /> </a></li>
+                    <li><a href="www.google.com/"  target="_blank" title="visit my LinkedIn profile"><FaLinkedinIn /> </a></li>
                   </ul>
                   <ul className="hero_social">
-                    <li><a href="www.google.com/" className="dark:border-[#4d4d4d] border-[1px] border-[--main-site-color] dark:hover:bg-[#4d4d4d]" target="_blank" title="visit my GitHub profile"><FaGithub /> </a></li>
+                    <li><a href="www.google.com/"  target="_blank" title="visit my GitHub profile"><FaGithub /> </a></li>
                   </ul>
                   <ul className="hero_social">
-                    <li><a href="www.google.com/" className="dark:border-[#4d4d4d] border-[1px] border-[--main-site-color] dark:hover:bg-[#4d4d4d]" target="_blank" title="visit my FaceBook profile"><FaFacebookF /> </a></li>
+                    <li><a href="www.google.com/"  target="_blank" title="visit my FaceBook profile"><FaFacebookF /> </a></li>
                   </ul>
                 </div>
               </div>
@@ -382,8 +382,8 @@ export default function Home() {
               </div>
             </div>
           </div> */}
-          <div className=" mt-5 flex items-center justify-center w-full ">
-            <div className="experience_title flex gap-1">
+          <div className="flex items-center justify-center w-full ">
+            <div className="experience_title flex gap-8 items-center justify-center">
               <LuMedal />
               <h2>My Experience</h2>
             </div>
@@ -394,12 +394,12 @@ export default function Home() {
 
       {/* My Skills */}
       < section className="myskills bg-black-100 dark:bg-[#cecdcd]" >
-        <div className="container_css">
+        <div className="container_css ">
           <div className="myskills_title">
             <h2>My Skills</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, beatae.</p>
           </div>
-          <div className="myskills_cards">
+          <div className="myskills_cards ">
             <div className="mys_card">
               <div className="mys_inner">
                 <img src="/img/python.png" alt="python" />

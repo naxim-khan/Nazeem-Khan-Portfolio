@@ -136,7 +136,7 @@ const RecentProjects: React.FC = () => {
 
                     {filteredProjects.map((item, i) => (
                         <>
-                            <div key={item.id} className="relative  bg-gray-800 dark:bg-white-100 bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-lg p-5 shadow-lg hover:shadow-2xl transition-all duration-300">
+                            <div key={item.id} className="relative  bg-gray-800 dark:bg-white-100 bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-lg p-0 sm:p-4 md:p-2 lg:p-3 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                                 <Particles
                                     className='absolute  inset-0 size-full '
                                     color={'#9c38ff'}
@@ -145,20 +145,20 @@ const RecentProjects: React.FC = () => {
                                     refresh
                                 />
                                 <Lens>
-                                    <div className="relative overflow-hidden rounded-lg mb-4 h-[300px]">
-                                        <div className='absolute z-10 bg-black-100/50 bottom-0 w-full text-wrap flex justify-center align-center text-xl p-2 backdrop-blur-[20px]'><h2 className='text-white'>{formatText(item.title, 40)}</h2></div>
-                                        <img src={(item.images && item.images[0]) || '/img/noimage.png'} alt="cover" className="w-full h-full object-cover rounded-lg absolute" />
+                                    <div className="relative overflow-hidden rounded-lg mb-4 h-[300px] ">
+                                        <div className='absolute z-10 bg-black-100/50 bottom-0 w-full text-wrap flex justify-center align-center text-xl p-2 backdrop-blur-[20px] overflow-hidden'><h2 className='text-white'>{formatText(item.title, 40)}</h2></div>
+                                        <img src={(item.images && item.images[0]) || '/img/noimage.png'} alt="cover" className="w-full h-full object-cover rounded-lg absolute p-1  overflow-hidden" />
                                     </div>
                                 </Lens>
                                 {/* <h1 className="font-bold text-xl line-clamp-1 mb-2 text-gray-300  dark:text-gray-800">
                                         {formatText(item.title, 40)}
                                     </h1> */}
-                                <p className=" text-gray-400 dark:text-slate-700 mb-4 text-lg line-clamp-2">
+                                <p className=" text-slate-300 dark:text-slate-700 mb-4 text-lg line-clamp-2 px-2 ">
                                     {formatText(item.description, 100)}
                                 </p>
                                 <hr className='w-full opacity-10' />
 
-                                <div className="flex items-center justify-between mt-3">
+                                <div className="flex items-center justify-between mt-3 p-2">
                                     <Link href={`/projects/${item.slug}`} className="hover:text-white-100 text-[#8d29ff] dark:hover:text-slate-700 font-bold text-lg flex items-center justify-center" title='Project details page.'>
                                         Details <ChevronRight />
                                     </Link>

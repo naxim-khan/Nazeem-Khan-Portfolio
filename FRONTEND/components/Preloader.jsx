@@ -45,14 +45,14 @@ const Preloader = ({ isLoading }) => {
     }, [isLoading]);
 
     return (
-     
+
         <div className={`preloader ${isLoading ? '' : 'hidden'}`}>
             <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
                 <path id="preloaderSvg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
             </svg>
 
             <div className="preloader-heading">
-                <div className="load-text">
+                <div className="load-text first-load">
                     <span>N</span>
                     <span>A</span>
                     <span>Z</span>
@@ -60,6 +60,8 @@ const Preloader = ({ isLoading }) => {
                     <span>E</span>
                     <span>M</span>
                     <span>-</span>
+                </div>
+                <div className='load-text second-load'>
                     <span>K</span>
                     <span>H</span>
                     <span>A</span>

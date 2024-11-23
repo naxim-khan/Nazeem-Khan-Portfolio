@@ -24,6 +24,7 @@ const config = {
     extend: {
       colors: {
         'main-site': 'var(--main-site-color)',
+        'dark-site-secondary': 'var(--dark-site-secondary)',
         'custom-gray': '#dddddd',
         black: {
           DEFAULT: "#000",
