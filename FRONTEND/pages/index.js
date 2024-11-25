@@ -135,7 +135,7 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="container_css ">
+        <div className="container_css">
           <div className="flex_css w-100_css flex items-center justify-center ">
             <div className="heroinfoleft">
               <span className="hero_sb_title dark:text-[#414141] " data-ao='fade-right'>I'm Nazeem Khan </span>
