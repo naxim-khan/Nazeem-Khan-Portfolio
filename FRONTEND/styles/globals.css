@@ -13,6 +13,11 @@
 
 @layer base {
     :root {
+      --color-1: 0 100% 63%;
+      --color-2: 270 100% 63%;
+      --color-3: 210 100% 63%;
+      --color-4: 195 100% 63%;
+      --color-5: 90 100% 63%;
       --background: 0 0% 100%;
       --foreground: 240 10% 3.9%;
   
@@ -99,7 +104,9 @@ body {
     overflow-x: hidden;
 }
 
-
+.dark body{
+    background-color: #dedddc;
+}
 
 /* Reset filter for specific child elements like images */
 
@@ -1864,7 +1871,7 @@ header.sticky {
 
 .footer {
     padding: 2rem 1rem;
-    background: #05000f;
+    background: #00041f;
 }
 
 .dark .footer {
@@ -3157,6 +3164,40 @@ header.sticky {
     color: var(--dark-black);
 }
 
+
+.educationtoptitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.educationtoptitle h2 {
+    /* font-size: 55px; */
+    background: linear-gradient(to right, #8750f7 0%, #dddddd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dark .educationtoptitle h2 {
+    background: linear-gradient(to right, var(--main-site-color) 0%, var(--dark-site-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.educationtoptitle h3 {
+    font-size: 30px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.dark .educationtoptitle h3 {
+    color: var(--dark-black);
+}
+
+.certificate-bg {
+    background: linear-gradient(to right, var(--main-site-color) 0%, var(--dark-site-secondary) 100%);
+}
 
 .shopproducts {
     background-color: #050709;

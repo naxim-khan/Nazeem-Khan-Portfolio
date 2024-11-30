@@ -5,7 +5,7 @@ import { LiaBasketballBallSolid } from "react-icons/lia";
 
 export default function Footer() {
     return <>
-        <footer className="footer">
+        <footer className="footer ">
          <div className="footersec flex_css flex-center_css flex-col_css gap-2_css">
             <div className="logo">
                 <img src="/img/logo.svg" alt="logo" />

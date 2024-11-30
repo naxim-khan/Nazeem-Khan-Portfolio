@@ -104,7 +104,7 @@ export default function Header() {
                             <Link href='/blogs' onClick={()=>handleLinkClick('/blogs')} className={activeLink ==='/blogs' ? 'active' : '' }>Blogs</Link>
                         </li>
                         <li>
-                            <Link href='/gallery' onClick={()=>handleLinkClick('/gallery')} className={activeLink ==='/gallery' ? 'active' : '' }>Gallery</Link>
+                            <Link href='/Education' onClick={()=>handleLinkClick('/Education')} className={activeLink ==='/Education' ? 'active' : '' }>Education</Link>
                         </li>
                         <li>
                             <Link href='/services' onClick={()=>handleLinkClick('/services')} className={activeLink ==='/services' ? 'active' : '' }>Services</Link>
@@ -144,7 +144,7 @@ export default function Header() {
                             <Link href='/blogs' onClick={()=>handleLinkClick('/blogs')} className={activeLink ==='/blogs' ? 'active' : '' }>Blogs</Link>
                         </li>
                         <li>
-                            <Link href='/gallery' onClick={()=>handleLinkClick('/gallery')} className={activeLink ==='/gallery' ? 'active' : '' }>Gallery</Link>
+                            <Link href='/Education' onClick={()=>handleLinkClick('/Education')} className={activeLink ==='/Education' ? 'active' : '' }>Education</Link>
                         </li>
                         <li>
                             <Link href='/services' onClick={()=>handleLinkClick('/services')} className={activeLink ==='/services' ? 'active' : '' }>Services</Link>
