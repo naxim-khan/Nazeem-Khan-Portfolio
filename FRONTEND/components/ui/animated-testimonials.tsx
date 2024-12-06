@@ -5,12 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import useFetchData from "@/hooks/useFetchData"; // import this module from here
+import Link from "next/link";
 
 type Testimonial = {
   quote: string;
   name: string;
   designation: string;
   src: string;
+  slug: string;
 };
 
 export const AnimatedTestimonials = ({ autoplay = false }: { autoplay?: boolean }) => {
@@ -25,6 +27,7 @@ export const AnimatedTestimonials = ({ autoplay = false }: { autoplay?: boolean 
       name: data.title || "Unknown Name",
       designation: data.Institute || "Unknown Designation",
       src: (data.images && data.images[0]) || "/img/noimage.png",
+      slug: data.slug
     }));
 
   const [active, setActive] = useState(0);
@@ -95,14 +98,16 @@ export const AnimatedTestimonials = ({ autoplay = false }: { autoplay?: boolean 
                   }}
                   className="absolute inset-0 origin-bottom flex items-center justify-center max-sm:w-full"
                 >
-                  <Image
-                    src={testimonial.src}
-                    alt={testimonial.name}
-                    width={500}
-                    height={500}
-                    draggable={false}
-                    className="h-full w-full rounded-2xl object-cover object-center max-w-[500px] min-w-auto sm:min-w-[300px] max-sm:min-w-auto max-sm:w-[100%] 5max-sm:mx-0 max-sm:px-0"
-                  />
+                  <Link href={`/Education/${testimonial.slug}`}>
+                    <Image
+                      src={testimonial.src}
+                      alt={testimonial.name}
+                      width={500}
+                      height={500}
+                      draggable={false}
+                      className=" h-full w-full rounded-2xl object-cover object-center max-w-[500px] min-w-auto  max-sm:h-auto max-sm:min-w-auto max-sm:w-[100%] max-sm:mx-0 max-sm:px-0"
+                    />
+                  </Link>
                 </motion.div>
               ))}
             </AnimatePresence>

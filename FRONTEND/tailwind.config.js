@@ -22,6 +22,9 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        'custom-1008': { max: '1031px' }, // Custom breakpoint for 1008px and below
+      },
       colors: {
         "color-1": "hsl(var(--color-1))",
         "color-2": "hsl(var(--color-2))",

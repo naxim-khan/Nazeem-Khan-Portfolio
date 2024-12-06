@@ -85,8 +85,9 @@ export default function Header() {
                 opacity: visible ? 1 : 0,
             }}
             transition={{ duration: 0.3 }}
+            className="z- z-[1000]"
         >
-            <nav className="container_css m-auto_css max-w-[1400px] flex_css flex-sb_css justify-between_css">
+            <nav className="container_css m-auto_css max-w-[1400px] flex_css flex-sb_css justify-between_css z-50">
                 <div className="logo flex_css ">
                     <Link href="/">
                        <img src={`/img/${darkMode ? 'logo':'logo'}.svg`} />
