@@ -145,7 +145,7 @@ export default function Home() {
                   <img src="/img/nazeem.jpg" alt="Nazeem khan" />
                 </div>
                 
-              <div className="lead dark:text-[#4d4d4d]" data-ao='fade-up' >I break down complex user experience problems to create integrity focussed solution that connect billions of poeples</div>
+              <div className="lead dark:text-[#4d4d4d]" data-ao='fade-up' >I craft user-focused websites and applications to elevate your business and bring your ideas to life. Let's create something extraordinary together.</div>
               <div className="hero_btn_box" data-aos='fade-up'>
                 <Link href='/' download={'/img/resume.pdf'} className='download_cv ' title="Download CV">Download CV<BiDownload />  </Link>
                 <div className="subsocial">
@@ -202,7 +202,7 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className=" services p-5 h-fit_css max-h-fit bg-black-100 dark:bg-[#dedddc]">
+      <section className=" services p-5 pb-0 h-fit_css max-h-fit bg-black-100 dark:bg-[#dedddc]">
         <div className="container_css">
           <div className="services_titles">
             <h2>My Quality Services</h2>
@@ -355,7 +355,7 @@ export default function Home() {
       <RecentProjects />
 
       {/* Experience study */}
-      < section className="bg-black-100 dark:bg-[#dedddc] p-5 h-fit max-h-fit" >
+      < section className="bg-black-100 dark:bg-[#dedddc]  mt-9 h-fit max-h-fit" >
         <div className="container_css ">
           {/* <div className="experience">
             <div className="experience_title flex gap-1">
@@ -383,24 +383,24 @@ export default function Home() {
             </div>
           </div> */}
           <div className="flex items-center justify-center w-full ">
-            <div className="experience_title flex gap-8 items-center justify-center">
+            <div className="experience_title flex gap-8 mt-2 items-center justify-center">
               <LuMedal />
               <h2>My Experience</h2>
             </div>
           </div>
-          <Experience className="bg- bg-blue-600" />
+          <Experience className="bg-blue-600" />
         </div>
       </ section>
 
       {/* My Skills */}
-      < section className="myskills bg-black-100 dark:bg-[#cecdcd]" >
-        <div className="container_css ">
+      < section className="myskills  bg-black-100 dark:bg-[#cecdcd]" >
+        <div className="container_css">
           <div className="myskills_title">
             <h2>My Skills</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, beatae.</p>
           </div>
-          <div className="myskills_cards ">
-            <div className="mys_card">
+          <div className="myskills_cards grid grid-cols-2 md:grid-cols-6 sm:grid-cols-4 gap-4">
+            <div className="mys_card ">
               <div className="mys_inner">
                 <img src="/img/python.png" alt="python" />
                 <h3>92%</h3>
@@ -458,7 +458,7 @@ export default function Home() {
             <h2>Recent Blogs</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, voluptatum delectus. Laudantium tempore, magnam eaque delectus cum ea cupiditate est?</p>
           </div>
-          <div className="recent_blogs">
+          <div className="recent_blogs mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
             {allwork.slice(0, 3).map((blog) => {
               return <Link href={`/blogs/${blog.slug}`} className="re_blog" key={blog._id}>
                 <div className="re_blogimg">

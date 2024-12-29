@@ -4,6 +4,7 @@ import Spinner from "@/components/Spinner";
 import Head from "next/head";
 import Link from "next/link";
 import { GoArrowUpRight } from "react-icons/go";
+import { Dock, DockIcon } from "@/components/magicui/dock";
 
 export default function projects() {
     const { alldata, loading } = useFetchData('/api/projects');
@@ -42,13 +43,54 @@ export default function projects() {
                         <h2>My Recent Works</h2>
                         <p>We put your ideas and thus your wishes in the form of a unique web project that inspires you and you customers.</p>
                     </div>
-                    <div className="project_buttons">
-                        <button className={selectCategory === 'All' ? 'active' : ''} onClick={() => handleCategoryChange('All')}>All</button>
-                        <button className={selectCategory === 'website development' ? 'active' : ''} onClick={() => handleCategoryChange('website development')}>Websites</button>
-                        <button className={selectCategory === 'app development' ? 'active' : ''} onClick={() => handleCategoryChange('app development')}>Apps</button>
-                        <button className={selectCategory === 'E-commerce site' ? 'active' : ''} onClick={() => handleCategoryChange('E-commerce site')}>E-Commerce Sites</button>
-                        <button className={selectCategory === 'Node JS' ? 'active' : ''} onClick={() => handleCategoryChange('Node JS')}>Content</button>
-                    </div>
+                    
+                    <Dock distance={60} magnification={60} className="items-center justify-center px-3 gap-2 border-purple dark:shadow-md shadow-black grid grid-cols-1 w-[90%] sm:w-fit sm:grid-cols-2 md:grid-cols-3 lg:flex lg:space-x-4 h-fit">
+                    <button
+                        className={`px-4 py-2 rounded-full border transition-all duration-300 ${selectCategory === 'All'
+                            ? 'border-slate-500 bg-purple-600 text-white dark:text-slate-600'
+                            : 'border-transparent dark:bg-gray-300 bg-gray-700 text-white-100 dark:text-slate-600'
+                            } hover:border-slate-500 hover:bg-transparent hover:text-slate-600`}
+                        onClick={() => handleCategoryChange('All')}
+                    >
+                        All
+                    </button>
+                    <button
+                        className={`px-4 py-2 rounded-full border transition-all duration-300 ${selectCategory === 'website development'
+                            ? 'border-slate-500 bg-purple-600 text-white dark:text-slate-600'
+                            : 'border-transparent dark:bg-gray-300 bg-gray-700 text-white-100 dark:text-slate-600'
+                            } hover:border-slate-500 hover:bg-transparent hover:text-slate-600`}
+                        onClick={() => handleCategoryChange('website development')}
+                    >
+                        Websites
+                    </button>
+                    <button
+                        className={`px-4 py-2 rounded-full border transition-all duration-300 ${selectCategory === 'app development'
+                            ? 'border-slate-500 bg-purple-600 text-white dark:text-slate-600'
+                            : 'border-transparent dark:bg-gray-300 bg-gray-700 text-white-100 dark:text-slate-600'
+                            } hover:border-slate-500 hover:bg-transparent hover:text-slate-600`}
+                        onClick={() => handleCategoryChange('app development')}
+                    >
+                        Apps
+                    </button>
+                    <button
+                        className={`px-4 py-2 rounded-full border transition-all duration-300 ${selectCategory === 'E-commerce site'
+                            ? 'border-slate-500 bg-purple-600 text-white dark:text-slate-600'
+                            : 'border-transparent dark:bg-gray-300 bg-gray-700 text-white-100 dark:text-slate-600'
+                            } hover:border-slate-500 hover:bg-transparent hover:text-slate-600`}
+                        onClick={() => handleCategoryChange('E-commerce site')}
+                    >
+                        E-Commerce Sites
+                    </button>
+                    <button
+                        className={`px-4 py-2 rounded-full border transition-all duration-300 ${selectCategory === 'Node JS'
+                            ? 'border-slate-500 bg-purple-600 text-white dark:text-slate-600'
+                            : 'border-transparent dark:bg-gray-300 bg-gray-700 text-white-100 dark:text-slate-600'
+                            } hover:border-slate-500 hover:bg-transparent hover:text-slate-600`}
+                        onClick={() => handleCategoryChange('Node JS')}
+                    >
+                        Content
+                    </button>
+                </Dock>
 
                     <div className="projects_cards_2">
                         {loading ? (

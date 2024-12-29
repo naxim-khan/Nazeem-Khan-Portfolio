@@ -61,7 +61,7 @@ export default function App({ Component, pageProps }) {
     <Header />
     {/* <FloatingNav navItems={navItems} /> */}
     {!isLoading && (
-      <main id="site-wrapper">
+      <main id="site-wrapper bg-black-100 dark:bg-white-100">
           <Component {...pageProps} />
       </main>
     )}

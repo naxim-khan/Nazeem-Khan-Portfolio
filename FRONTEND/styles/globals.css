@@ -91,6 +91,14 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    background-color: #000319;
+}
+main{
+    background-color: #000319;
+}
+
+.dark main{
+    background-color: #dedddc;
 }
 
 
@@ -571,7 +579,7 @@ header.sticky {
     background-image: linear-gradient(to right, var(--main-site-color) 0%, #2a1454 51%, var(--main-site-color) 100%);
     border: none;
     border-radius: 60px;
-    padding: 20px 35px;
+    padding: 15px 35px;
     transition: 0.4s;
 }
 
@@ -992,8 +1000,8 @@ header.sticky {
 
 .services {
     position: relative;
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     /* background-color: #050709; */
 }
 
@@ -1674,7 +1682,7 @@ header.sticky {
 .myskills_title {
     position: relative;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     max-width: 700px;
     width: 100%;
     margin-left: auto;
@@ -1708,7 +1716,7 @@ header.sticky {
 
 .myskills_cards {
     width: 100%;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: center;
     gap: 1rem;
@@ -1716,6 +1724,7 @@ header.sticky {
 }
 
 .mys_card {
+    width:100%;
     max-width: 180px;
     text-align: center;
 }
@@ -1723,15 +1732,20 @@ header.sticky {
 .mys_inner {
     position: relative;
     border-radius: 25px;
-    padding: 2rem 3.5rem;
+    padding: 2rem ;
     background: #1f013d;
     border: 1px solid transparent;
     margin-bottom: 15px;
     transition: 0.6s;
-    /* border: 1px solid #905ff1; */
+    border: 1px solid #905ff1;
     overflow: hidden;
     z-index: 1;
     transition: 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .dark .mys_inner {
@@ -1789,7 +1803,7 @@ header.sticky {
 
 .recentblogs {
     position: relative;
-    padding: 120px 1rem;
+    padding: 50px 1rem;
     /* background: #0f0715; */
 }
 
@@ -2935,7 +2949,7 @@ header.sticky {
 
 .centerservices {
     position: relative;
-    background-color: #050709;
+    background-color: #0a0e29;
     padding: 5rem 1rem;
 }
 
@@ -3030,7 +3044,7 @@ header.sticky {
 }
 
 .pricingplansec {
-    background-color: #0f0715;
+    background-color: transparent;
     padding-bottom: 5rem;
 }
 
@@ -3738,7 +3752,7 @@ header.sticky {
     position: relative;
     padding: 5rem 0;
     padding-top: 15rem;
-    background-color: #0f0715;
+    /* background-color: #0f0715; */
 }
 
 .dark .blogslugpage {
@@ -3908,7 +3922,7 @@ header.sticky {
 
 .rightslugsearchbar {
     width: 100%;
-    background-color: #140c1c;
+    background-color: #0a0e29;
     padding: 2rem;
     display: flex;
     border-radius: 10px;
@@ -3928,7 +3942,7 @@ header.sticky {
     border: none;
     outline: none;
     /* color: #fff; */
-    background-color: #111;
+    background-color: #07091b;
     border: 0.5px solid #444;
 }
 
@@ -3950,7 +3964,7 @@ header.sticky {
 
 .rightslugcategory {
     width: 100%;
-    background-color: #140c1c;
+    background-color: #0a0e29;
     padding: 2rem;
     border-radius: 10px;
     margin-bottom: 2rem;
@@ -3994,7 +4008,7 @@ header.sticky {
 
 .rightrecentpost {
     width: 100%;
-    background-color: #140c1c;
+    background-color: #0a0e29;
     padding: 2rem;
     border-radius: 10px;
     margin-bottom: 2rem;
@@ -4746,6 +4760,10 @@ header.sticky {
         transform: scale(0.85);
     }
 
+    .edu .container_css{
+        transform: scale(0.98);
+    }
+
     .hero_title {
         font-size: 60px;
     }
@@ -5315,7 +5333,6 @@ header.sticky {
         width: 375px;
         height: 400px;
     }
-
     .hero {
         padding: 15rem 1rem;
         padding-bottom: 5rem;
