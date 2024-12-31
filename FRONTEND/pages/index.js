@@ -34,20 +34,20 @@ export default function Home() {
   // services data
   const services = [
     {
-      title: "Web Development",
-      description: "I am very good in web development offering services, I offer reliable web development services to generate the most remarkable results which your business need."
+      title: "Full Stack Web Development",
+      description: "I develop robust, scalable, and high-performing web applications using cutting-edge technologies like React, Next.js, Node.js, Django, and the MERN stack. From front-end functionality to back-end systems, I deliver end-to-end solutions tailored to your unique requirements."
     },
     {
-      title: "Mobile Development",
-      description: "Experienced mobile developer offering innovative solutions. Proficient in creating high-performance, user-centric mobile apps. Expertise in iOS, Android, and cross-platform development."
+      title: "API Development & Integration",
+      description: "I specialize in designing and implementing RESTful and GraphQL APIs, ensuring seamless integration with third-party services or custom-built systems. My expertise in Django and Node.js allows me to create reliable and efficient server-side solutions for your applications."
     },
     {
-      title: "Digital Marketing(SEO)",
-      description: "My digital marketing services will take your business to the next level, we offer remarkable digital marketing strategies that drives traffic to your website, your business, and improves your brand awareness to potential customers."
+      title: "Custom Web Application Development",
+      description: "I build tailored web applications that solve real-world problems and meet specific business needs. By leveraging modern frameworks and tools, I ensure applications are fast, secure, and maintainable for long-term success."
     },
     {
-      title: "Content Creator",
-      description: "Passionate photographer and videographer capturing moments with creativity. Transforming visions into visual stories. Expert in visual storytelling, skilled in both photography and videography to deliver captivating content."
+      title: "Platform Optimization and Maintenance",
+      description: "I enhance and optimize existing web platforms to improve performance, scalability, and user experience. From debugging and refactoring code to implementing new features, I ensure your platform remains competitive and efficient in today’s fast-evolving digital landscape."
     }
   ];
 
@@ -140,26 +140,40 @@ export default function Home() {
             <div className="heroinfoleft">
               <span className="hero_sb_title dark:text-[#414141] " data-ao='fade-right'>I'm Nazeem Khan </span>
               <h1 className="hero_title bg-dot dark:text-[#2c2c2c]" data-ao='fade-left'>Full Stack Web Developer </h1>
-              
-                <div className="hero_img_box heroimgbox " data-aos='flip-left' data-aos-easing='ease-out-cubic' data-aos-duration='2000' >
-                  <img src="/img/nazeem.jpg" alt="Nazeem khan" />
-                </div>
-                
+
+              <div className="hero_img_box heroimgbox " data-aos='flip-left' data-aos-easing='ease-out-cubic' data-aos-duration='2000' >
+                <img src="/img/nazeem.jpg" alt="Nazeem khan" />
+              </div>
+
               <div className="lead dark:text-[#4d4d4d]" data-ao='fade-up' >I craft user-focused websites and applications to elevate your business and bring your ideas to life. Let's create something extraordinary together.</div>
               <div className="hero_btn_box" data-aos='fade-up'>
-                <Link href='/' download={'/img/resume.pdf'} className='download_cv ' title="Download CV">Download CV<BiDownload />  </Link>
+                <Link
+                  href='/img/resume.pdf'
+                  className='download_cv'
+                  title="Download CV"
+                  target="_blank"
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent default behavior
+                    const link = document.createElement('a');
+                    link.href = '/img/resume.pdf';
+                    link.download = 'resume.pdf'; // You can change the filename if needed
+                    link.click(); // Trigger the download
+                  }}
+                >
+                  Download CV <BiDownload />
+                </Link>
                 <div className="subsocial">
                   <ul className="hero_social flex ">
-                    <li><a href="www.google.com/"  target="_blank" title="visit my X profile"><FaTwitter /> </a></li>
+                    <li><a href="www.google.com/" target="_blank" title="visit my X profile"><FaTwitter /> </a></li>
                   </ul>
                   <ul className="hero_social">
-                    <li><a href="www.google.com/"  target="_blank" title="visit my LinkedIn profile"><FaLinkedinIn /> </a></li>
+                    <li><a href="www.google.com/" target="_blank" title="visit my LinkedIn profile"><FaLinkedinIn /> </a></li>
                   </ul>
                   <ul className="hero_social">
-                    <li><a href="www.google.com/"  target="_blank" title="visit my GitHub profile"><FaGithub /> </a></li>
+                    <li><a href="www.google.com/" target="_blank" title="visit my GitHub profile"><FaGithub /> </a></li>
                   </ul>
                   <ul className="hero_social">
-                    <li><a href="www.google.com/"  target="_blank" title="visit my FaceBook profile"><FaFacebookF /> </a></li>
+                    <li><a href="www.google.com/" target="_blank" title="visit my FaceBook profile"><FaFacebookF /> </a></li>
                   </ul>
                 </div>
               </div>
@@ -397,7 +411,7 @@ export default function Home() {
         <div className="container_css">
           <div className="myskills_title">
             <h2>My Skills</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, beatae.</p>
+            <p>Below are the key technologies and frameworks I work with to build robust and scalable applications.</p>
           </div>
           <div className="myskills_cards grid grid-cols-2 md:grid-cols-6 sm:grid-cols-4 gap-4">
             <div className="mys_card ">
@@ -456,7 +470,7 @@ export default function Home() {
         <div className="container_css">
           <div className="myskills_title">
             <h2>Recent Blogs</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, voluptatum delectus. Laudantium tempore, magnam eaque delectus cum ea cupiditate est?</p>
+            <p>I write about web development and Python, sharing tips, tutorials, and insights to help you stay updated with the latest trends and technologies.</p>
           </div>
           <div className="recent_blogs mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
             {allwork.slice(0, 3).map((blog) => {

@@ -113,9 +113,9 @@ export default function Header() {
                         <li>
                             <Link href='/projects' onClick={()=>handleLinkClick('/projects')} className={activeLink ==='/projects' ? 'active' : '' }>Projects</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link href='/shop' onClick={()=>handleLinkClick('/shop')} className={activeLink ==='/shop' ? 'active' : '' }>Shops</Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link href='/contact' onClick={()=>handleLinkClick('/contact')} className={activeLink ==='/contact' ? 'active' : '' }>Contact</Link>
                         </li>
@@ -124,7 +124,7 @@ export default function Header() {
                     <div className="darkmodetoggle" onClick={toggleDarkMode} >
                         {darkMode ? <IoMoonSharp title="Switch to dark mode"/> : <LuSun title="Switch to light mode"/>}
                     </div>
-                    <button><Link href='/'>Hire Me!</Link></button>
+                    <button><Link href='/contact'>Hire Me!</Link></button>
                     <div className="mobiletogglesvg" onClick={handleMobileOpen}>
                         <HiMiniBars3BottomRight />
                     </div>
@@ -153,9 +153,9 @@ export default function Header() {
                         <li>
                             <Link href='/projects' onClick={()=>handleLinkClick('/projects')} className={activeLink ==='/projects' ? 'active' : '' }>Projects</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link href='/shop' onClick={()=>handleLinkClick('/shop')} className={activeLink ==='/shop' ? 'active' : '' }>Shops</Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link href='/contact' onClick={()=>handleLinkClick('/contact')} className={activeLink ==='/contact' ? 'active' : '' }>Contact</Link>
                         </li>

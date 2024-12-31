@@ -162,13 +162,13 @@ const RecentProjects: React.FC = () => {
                     {filteredProjects.map((item, i) => (
                         <>
                             <div key={item.id} className="relative  bg-gray-800 dark:bg-white-100 bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-lg p-1 sm:p-4 md:p-2 lg:p-3 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
-                                <Particles
+                                {/* <Particles
                                     className='absolute  inset-0 size-full '
                                     color={'#9c38ff'}
                                     size={0.5}
                                     quantity={50}
                                     refresh
-                                />
+                                /> */}
                                 <Lens>
                                     <div className="relative overflow-hidden rounded-lg mb-1 sm:mb-4 h-[250px] sm:h-[300px]">
                                         {/* <div className='absolute z-10 bg-black-100/50 bottom-0 w-full text-wrap flex justify-center align-center text-xl p-2 backdrop-blur-[20px] overflow-hidden'><h2 className='text-white'>{formatText(item.title, 40)}</h2></div> */}
