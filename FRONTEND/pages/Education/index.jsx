@@ -8,7 +8,8 @@ import Marquee from '@/components/magicui/marquee'
 // import Particles from '@/components/magicui/particles'
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
-import { BiDownload } from "react-icons/bi";
+import { BiDownload, BiCollection } from "react-icons/bi";
+import Certificates from "@/components/Certificates";
 
 
 export const FadeUp = (delay) => {
@@ -37,6 +38,12 @@ export default function shop() {
 
     const { alldata, loading } = useFetchData('/api/education')
     const publisheddata = alldata.filter(ab => ab.status === 'publish');
+    const handleScroll = () => {
+        const certificatesSection = document.getElementById('certificates');
+        if (certificatesSection) {
+            certificatesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     // search
     const [searchQuery, setSearchQuery] = useState('');
@@ -61,8 +68,8 @@ export default function shop() {
                         <h1 className="hero_title bg-dot dark:text-[#2c2c2c]" data-aos='fade-left'>Certification</h1>
 
                         <div className="lead dark:text-[#4d4d4d]" data-aos='fade-up' >I'm a final-semester Computer Science student at the University of Peshawar with expertise in programming, Web development, and MERN stack. I also hold a Diploma in IT and completed Full-Stack Web Development courses, preparing me for success in tech.</div>
-                        <div className="" data-aos='fade-up'>
-                            <div className="subemail">
+                        <div className="mt-8" data-aos='fade-up'>
+                            {/* <div className="subemail">
                                 <form className="flex_css" onSubmit={(event) => {
                                     event.preventDefault();
                                     const certificatesSection = document.getElementById("certificates");
@@ -78,7 +85,14 @@ export default function shop() {
                                     />
                                     <button type="submit">Search</button>
                                 </form>
-                            </div>
+                            </div> */}
+                            <button
+                                onClick={handleScroll}
+                                className="flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 hover:shadow-lg focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 transition-all duration-300"
+                            >
+                                View All Certificates
+                                <BiCollection className="ml-2 text-2xl" />
+                            </button>
                         </div>
                     </div>
 
@@ -119,7 +133,7 @@ export default function shop() {
                     <div className="pointer-events-none absolute inset-y-0 right-0 w-[40%]  bg-gradient-to-l from-black-100 dark:from-[#dedddc]"></div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-10 mt-8 " id="certificates">
+                {/* <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-10 mt-8 " id="certificates">
 
                     {loading ? (
                         <div className="flex_css flex-center_css wh_100_css w-full"><Spinner /></div>
@@ -147,7 +161,9 @@ export default function shop() {
                             </div>
                         ))
                     )}
-                </div>
+                </div> */}
+
+                <Certificates />
 
             </div>
 

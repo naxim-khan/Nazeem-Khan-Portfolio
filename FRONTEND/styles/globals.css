@@ -1052,7 +1052,7 @@ header.sticky {
 
 .services_item {
     border-bottom: 1px solid #2a1454;
-    padding: 0 30px;
+    padding: 0 10px;
     position: relative;
     display: flex;
     align-items: center;
@@ -1098,7 +1098,7 @@ header.sticky {
 .right_s_box {
     width: calc(60% - 10px);
     padding: 30px 0;
-    padding-right: 15%;
+    /* padding-right: 15%; */
 }
 
 .services_item svg {
@@ -5607,3 +5607,73 @@ input:checked + label .description {
     background-image: url('./img4.jpeg');
 } */
 
+
+/* education category icons */
+.edu_icons{
+    color: #0066ff;
+}
+
+.certificate_card{
+    background-color: #090129;
+}
+.dark .certificate_card{
+    background-color: #fff;
+    color: #1a1a1a;
+}
+.certificate_card img{
+    width: 100%;
+    height: 100%;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+.c_category{
+    padding: 2px 7px 2px 7px;
+    background-color: #00000044;
+    border-radius: 0.2rem;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    /* letter-spacing: 1px; */
+}
+
+.c_year{
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
+.c_institute{
+    padding: 2px 7px 2px 7px;
+    border-radius: 0.5rem;
+    width: fit-content;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    background-color: #2a1f81a9;
+    opacity: 0.8;
+}
+
+.c_category_card{
+    background-color: #11012e;
+    border: 1px solid #0066ff;
+    transition: all 0.3s ease;
+}
+.dark .c_category_card{
+    background-color: #fff;
+    color: #00041f;
+}
+.c_category_card:hover{
+    background-color: #2a1f81;
+    border: 1px solid #0066ff70;
+}
+.dark .c_category_card:hover{
+    background-color: #c9c9c9;
+}
+.c_button{
+    background-color: #0000004f;
+    transition: all 0.3s ease;
+}
+
+.c_button:hover{
+    background-color: #00000050;
+    color: #0066ff9a;
+}

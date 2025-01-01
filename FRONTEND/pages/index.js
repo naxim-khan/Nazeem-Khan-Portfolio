@@ -227,18 +227,19 @@ export default function Home() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`services_item ${activeIndex === index ? 'sactive' : ''}`}
+                className={`services_item ${activeIndex === index ? 'sactive' : ''} `}
                 onMouseOver={() => handleHover(index)}
                 onMouseOut={handleMouseOut}
+               
               >
-                <div className="left_s_box">
-                  <span>0{index + 1}</span>
-                  <h3>{service.title}</h3>
+                <div className="left_s_box ">
+                  <span className="text-sm sm:text-xl ">0{index + 1}</span>
+                  <h3 className="text-lg sm:text-2xl">{service.title}</h3>
                 </div>
-                <div className="right_s_box">
-                  <p>{service.description}</p>
+                <div className="right_s_box w-full  pr-0 sm:pr-[15%]">
+                  <p className="text-sm sm:text-xl ">{service.description}</p>
                 </div>
-                <GoArrowUpRight />
+                <GoArrowUpRight className="ml-4 hidden sm:block" />
               </div>
             ))}
           </div>

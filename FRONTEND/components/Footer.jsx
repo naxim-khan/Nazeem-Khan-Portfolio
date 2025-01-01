@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="logo">
                 <img src="/img/logo.svg" alt="logo" />
             </div>
-            <div className="ul flex_css gap-2_css">
+            <div className="ul flex flex-wrap justify-center gap-2_css">
                 <li><Link href="/services">Services</Link></li>
                 <li><Link href="/services">Works</Link></li>
                 <li><Link href="/services">Resume</Link></li>
