@@ -85,7 +85,7 @@ export default function contact() {
                         <p>We love questions and feedback - and we're always happy to help!</p>
                         <div className="leftsociinfo">
                             <ul>
-                                <li><FaPhoneVolume /> <span>Phone: <a href="tel:+923433332231" target="_blank">+92-343333223</a></span></li>
+                                <li><FaPhoneVolume /> <span>Phone: <a href="tel:+923433332231" target="_blank">+92-34*********</a></span></li>
                                 <li><MdAttachEmail /> <span>Email: <a href="mailto:nazeemkhanpk@gmail.com" target="_blank">nazeemkhanpk@gmail.com</a></span></li>
                                 <li><GrLinkedin /> <span>LinkedIn: <a href="https://www.linkedin.com/in/nazeemkhannk/" target="_blank">nazeemkhannk</a></span></li>
                                 <li><FaGithub /> <span>GitHub: <a href="https://github.com/naxim-khan" target="_blank">naxim-khan</a></span></li>
