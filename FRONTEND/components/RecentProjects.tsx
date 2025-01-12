@@ -159,7 +159,7 @@ const RecentProjects: React.FC = () => {
 
                 <div className="grid   grid-cols-1 md:grid-cols-2  sm:grid-cols-1 lg:grid-cols-2 gap-8 py-10 px-4 sm:px-10 ">
 
-                    {filteredProjects.map((item, i) => (
+                    {filteredProjects.slice(0, 4).map((item, i) => (
                         <>
                             <div key={item.id} className="relative  bg-gray-800 dark:bg-white-100 bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-lg p-1 sm:p-4 md:p-2 lg:p-3 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                                 {/* <Particles

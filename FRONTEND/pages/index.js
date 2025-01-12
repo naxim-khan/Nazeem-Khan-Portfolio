@@ -67,9 +67,10 @@ export default function Home() {
 
         const projectData = await projectResponse.json();
         const blogsData = await blogsResponse.json();
+        const filteredBlogs = await blogsData.filter(blog => blog.status === 'publish');
 
         setAlldata(projectData);
-        setAllWork(blogsData);
+        setAllWork(filteredBlogs);
       } catch (error) {
         console.error('Error Fetching Data', error);
       } finally {
