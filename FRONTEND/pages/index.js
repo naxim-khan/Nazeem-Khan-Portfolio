@@ -164,16 +164,16 @@ export default function Home() {
                 </Link>
                 <div className="subsocial">
                   <ul className="hero_social flex ">
-                    <li><a href="www.google.com/" target="_blank" title="visit my X profile"><FaTwitter /> </a></li>
+                    <li><a href="https://www.coursera.org/user/ed8917ae9cc8a33be8969325841526be" target="_blank" title="visit my X profile"><FaTwitter /> </a></li>
                   </ul>
                   <ul className="hero_social">
-                    <li><a href="www.google.com/" target="_blank" title="visit my LinkedIn profile"><FaLinkedinIn /> </a></li>
+                    <li><a href="https://www.linkedin.com/in/nazeemkhannk/" target="_blank" title="visit my LinkedIn profile"><FaLinkedinIn /> </a></li>
                   </ul>
                   <ul className="hero_social">
-                    <li><a href="www.google.com/" target="_blank" title="visit my GitHub profile"><FaGithub /> </a></li>
+                    <li><a href="https://github.com/naxim-khan" target="_blank" title="visit my GitHub profile"><FaGithub /> </a></li>
                   </ul>
                   <ul className="hero_social">
-                    <li><a href="www.google.com/" target="_blank" title="visit my FaceBook profile"><FaFacebookF /> </a></li>
+                    <li><a href="https://www.facebook.com/nzm.khan.5245" target="_blank" title="visit my FaceBook profile"><FaFacebookF /> </a></li>
                   </ul>
                 </div>
               </div>
