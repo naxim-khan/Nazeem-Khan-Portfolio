@@ -33,7 +33,7 @@ const Certificates = () => {
             icon: <FaTrophy />,
             title: 'Achievements',
             description: 'Awards and special recognitions',
-            categoryKey: 'Achievement',
+            categoryKey: 'Awards/Achievements',
         },
     ];
 
