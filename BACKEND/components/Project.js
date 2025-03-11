@@ -384,9 +384,18 @@ export default function Project({
                     >
                         <option value="html">HTML</option>
                         <option value="css">CSS</option>
-                        <option value="javascript">JavaScript</option>
+                        <option value="bootstrap">BootStrap</option>
+                        <option value="TailwindCSS">TailwindCSS</option>
+                        <option value="typescript">TypeScript</option>
                         <option value="nextjs">Next.js</option>
                         <option value="reactjs">React.js</option>
+                        <option value="mongodb">MongoDB</option>
+                        <option value="ejs">Ejs</option>
+                        <option value="node.js">Node.js</option>
+                        <option value="express.js">Express.js</option>
+                        <option value="django">Django</option>
+                        <option value="flask">Flask</option>
+                        <option value="python">Python</option>
                         <option value="database">Database</option>
                     </select>
                 </div>
