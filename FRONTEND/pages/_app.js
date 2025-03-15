@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import {Particles} from "@/components/magicui/particles"
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
+import Head from 'next/head';
 import Aos from "aos";
 import 'aos/dist/aos.css';
 import "@/styles/globals.css";
@@ -57,6 +58,9 @@ export default function App({ Component, pageProps }) {
   }, [])
 
   return <>
+     <Head>
+        <meta name="description" content="Nazeem Khan – Professional web developer specializing in MERN stack, Python Django, and Next.js. Let's build robust and scalable web applications tailored to your business needs. Contact me today!" />
+      </Head>
     <Preloader isLoading={isLoading} />
     <Header />
     {/* <FloatingNav navItems={navItems} /> */}
