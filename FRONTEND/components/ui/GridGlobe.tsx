@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
@@ -31,7 +31,7 @@ const GridGlobe = () => {
     autoRotateSpeed: 0.5,
   };
   const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
-  const sampleArcs = [
+  const sampleArcs = React.useMemo(() => [
     {
       order: 1,
       startLat: -19.885592,
@@ -392,7 +392,7 @@ const GridGlobe = () => {
       arcAlt: 0.3,
       color: colors[Math.floor(Math.random() * (colors.length - 1))],
     },
-  ];
+  ], [colors]);
 
   return (
     // remove dark:bg-black bg-white h-screen md:h-auto  w-full flex-row py-20

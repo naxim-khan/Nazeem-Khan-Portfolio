@@ -13,70 +13,70 @@
 
 @layer base {
     :root {
-      --color-1: 0 100% 63%;
-      --color-2: 270 100% 63%;
-      --color-3: 210 100% 63%;
-      --color-4: 195 100% 63%;
-      --color-5: 90 100% 63%;
-      --background: 0 0% 100%;
-      --foreground: 240 10% 3.9%;
-  
-      --card: 0 0% 100%;
-      --card-foreground: 240 10% 3.9%;
-  
-      --popover: 0 0% 100%;
-      --popover-foreground: 240 10% 3.9%;
-  
-      --primary: 240 5.9% 10%;
-      --primary-foreground: 0 0% 98%;
-  
-      --secondary: 240 4.8% 95.9%;
-      --secondary-foreground: 240 5.9% 10%;
-  
-      --muted: 240 4.8% 95.9%;
-      --muted-foreground: 240 3.8% 46.1%;
-  
-      --accent: 240 4.8% 95.9%;
-      --accent-foreground: 240 5.9% 10%;
-  
-      --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 0 0% 98%;
-  
-      --border: 240 5.9% 90%;
-      --input: 240 5.9% 90%;
-      --ring: 240 10% 3.9%;
-  
-      --radius: 0.5rem;
+        --color-1: 0 100% 63%;
+        --color-2: 270 100% 63%;
+        --color-3: 210 100% 63%;
+        --color-4: 195 100% 63%;
+        --color-5: 90 100% 63%;
+        --background: 0 0% 100%;
+        --foreground: 240 10% 3.9%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 240 10% 3.9%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 240 10% 3.9%;
+
+        --primary: 240 5.9% 10%;
+        --primary-foreground: 0 0% 98%;
+
+        --secondary: 240 4.8% 95.9%;
+        --secondary-foreground: 240 5.9% 10%;
+
+        --muted: 240 4.8% 95.9%;
+        --muted-foreground: 240 3.8% 46.1%;
+
+        --accent: 240 4.8% 95.9%;
+        --accent-foreground: 240 5.9% 10%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 240 5.9% 90%;
+        --input: 240 5.9% 90%;
+        --ring: 240 10% 3.9%;
+
+        --radius: 0.5rem;
     }
-  
+
     .dark {
-      --background: 240 10% 3.9%;
-      --foreground: 0 0% 98%;
-  
-      --card: 240 10% 3.9%;
-      --card-foreground: 0 0% 98%;
-  
-      --popover: 240 10% 3.9%;
-      --popover-foreground: 0 0% 98%;
-  
-      --primary: 0 0% 98%;
-      --primary-foreground: 240 5.9% 10%;
-  
-      --secondary: 240 3.7% 15.9%;
-      --secondary-foreground: 0 0% 98%;
-  
-      --muted: 240 3.7% 15.9%;
-      --muted-foreground: 240 5% 64.9%;
-  
-      --accent: 240 3.7% 15.9%;
-      --accent-foreground: 0 0% 98%;
-  
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 0 0% 98%;
-  
-      --border: 240 3.7% 15.9%;
-      --input: 240 3.7% 15.9%;
-      --ring: 240 4.9% 83.9%;
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+
+        --popover: 240 10% 3.9%;
+        --popover-foreground: 0 0% 98%;
+
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
     }
 }
 
@@ -93,27 +93,31 @@ html {
     overflow-x: hidden;
     background-color: #000319;
 }
-main{
+
+main {
     background-color: #000319;
 }
 
-.dark main{
+.dark main {
     background-color: #dedddc;
 }
 
 
 body {
-    /* font-family: "Sora", sans-serif; */
-    /* font-family: "Space Grotesk", sans-serif; */
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
     background-color: #000319;
-    color: #dddddd;
+    /* Primary Dark Background */
+    color: #dedddc;
+    /* Primary Light Text */
     overflow-x: hidden;
 }
 
-.dark body{
+.dark body {
     background-color: #dedddc;
+    /* Primary Light Background */
+    color: #000319;
+    /* Primary Dark Text */
 }
 
 /* Reset filter for specific child elements like images */
@@ -181,7 +185,7 @@ img {
 
 .flex-wrap_css {
     flex-wrap: wrap;
-} 
+}
 
 .flex-center_css {
     justify-content: center;
@@ -207,9 +211,9 @@ img {
 
 .flex-ar_css {
     justify-content: space-around;
-} 
+}
 
- .gap-05_css {
+.gap-05_css {
     gap: 0.5rem;
 }
 
@@ -227,7 +231,7 @@ img {
 
 .gap-3_css {
     gap: 3rem;
-} 
+}
 
 /* ================================================== */
 
@@ -334,7 +338,7 @@ img {
 
 .mr-3_css {
     margin-right: 3rem;
-} 
+}
 
 /* ================================================== */
 
@@ -351,12 +355,18 @@ img {
     --main-hover-color: #905ff1;
     /* == For White Theme */
 
-    --theme-change-main-site-color: #808080; /* Neutral Gray */
-    --theme-change-dark-black: #000000; /* Pure Black */
-    --theme-change-pure-white: #ffffff; /* Pure White */
-    --theme-change-week-white: #f5f5f5; /* Light Gray (almost white) */
-    --theme-change-dark-site-secondary: #2a2a2a; /* Dark Gray */
-    --theme-change-main-hover-color: #bfbfbf; /* Lighter Gray for hover effects */
+    --theme-change-main-site-color: #808080;
+    /* Neutral Gray */
+    --theme-change-dark-black: #000000;
+    /* Pure Black */
+    --theme-change-pure-white: #ffffff;
+    /* Pure White */
+    --theme-change-week-white: #f5f5f5;
+    /* Light Gray (almost white) */
+    --theme-change-dark-site-secondary: #2a2a2a;
+    /* Dark Gray */
+    --theme-change-main-hover-color: #bfbfbf;
+    /* Lighter Gray for hover effects */
 }
 
 
@@ -367,7 +377,7 @@ img {
     margin: auto;
 }
 
- .full-h_css {
+.full-h_css {
     height: 100vh !important;
 }
 
@@ -430,7 +440,7 @@ button {
 
 li {
     list-style: none;
-} 
+}
 
 
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
@@ -691,7 +701,6 @@ header.sticky {
     padding: 160px 0 60px;
     /* background: #0f0715; */
     position: relative;
-    overflow: hidden;
     z-index: 1;
 }
 
@@ -721,6 +730,7 @@ header.sticky {
 .heroinfoleft-2 {
     width: 100%;
 }
+
 .hero_sb_title {
     font-size: 36px;
     font-weight: 700;
@@ -900,7 +910,7 @@ header.sticky {
     align-items: center;
     justify-content: center;
     vertical-align: middle;
-    z-index: -1;
+    z-index: 1;
     animation: 3s pulsate infinite alternate ease-in-out;
 }
 
@@ -921,7 +931,7 @@ header.sticky {
 .hero .intro_text svg text {
     text-transform: uppercase;
     stroke-width: 1.2;
-    stroke: #2a1454;
+    stroke: #4a2484;
     font-size: 240px;
     fill: transparent;
     display: inline-block;
@@ -939,9 +949,10 @@ header.sticky {
     opacity: 0.3;
 }
 
-.dark .threed-globe{
+.dark .threed-globe {
     filter: grayscale(100%);
 }
+
 .dark .hero .intro_text svg text {
     stroke: var(--main-site-color);
     stroke-width: 0.8;
@@ -962,35 +973,7 @@ header.sticky {
 }
 
 
-.funfect_area {
-    position: relative;
-    margin-top: 50px;
-}
-
-.funfect_item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: 25%;
-}
-
-.funfect_item h3 {
-    font-size: 64px;
-}
-
-.dark .funfect_item h3 {
-    color: var(--main-site-color);
-}
-
-.funfect_item h4 {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.6;
-}
-
-.dark .funfect_item h4 {
-    color: var(--main-site-color);
-}
+/* Funfact styles moved to Tailwind in index.js */
 
 
 
@@ -1194,9 +1177,12 @@ header.sticky {
     z-index: 20;
 }
 
-@media screen and (max-width: 480px) { /* Target small mobile screens */
+@media screen and (max-width: 480px) {
+
+    /* Target small mobile screens */
     .preloader .preloader-heading .load-text {
-        font-size: 22px; /* Reduce font size */
+        font-size: 22px;
+        /* Reduce font size */
     }
 }
 
@@ -1329,6 +1315,7 @@ header.sticky {
     top: 0;
     bottom: 0;
 }
+
 .projects_cards_2 {
     position: relative;
     display: flex;
@@ -1336,12 +1323,14 @@ header.sticky {
     justify-content: center;
 }
 
-.pro_cards{
+.pro_cards {
     background-color: white;
     color: var(--dark-black);
     /* gap: 3.5rem; */
 }
-.dark,.pro_cards{
+
+.dark,
+.pro_cards {
     background-color: var(--dark-black);
 }
 
@@ -1391,6 +1380,7 @@ header.sticky {
     justify-content: center;
     gap: .5rem;
 }
+
 .projects_cards_2 {
     width: 100%;
     position: relative;
@@ -1429,8 +1419,8 @@ header.sticky {
 .procard {
     position: relative;
     width: fit-content;
-    height: fit-content; 
-    
+    height: fit-content;
+
     padding: 3rem;
     /* padding-top: .5rem; */
     margin-bottom: 2rem;
@@ -1724,7 +1714,7 @@ header.sticky {
 }
 
 .mys_card {
-    width:100%;
+    width: 100%;
     max-width: 180px;
     text-align: center;
 }
@@ -1732,7 +1722,7 @@ header.sticky {
 .mys_inner {
     position: relative;
     border-radius: 25px;
-    padding: 2rem ;
+    padding: 2rem;
     background: #1f013d;
     border: 1px solid transparent;
     margin-bottom: 15px;
@@ -1745,7 +1735,7 @@ header.sticky {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .dark .mys_inner {
@@ -2041,9 +2031,10 @@ header.sticky {
     line-height: 1.6;
 }
 
-.dark .toptitleedu p{
+.dark .toptitleedu p {
     color: #000000a6;
 }
+
 .subemail {
     margin-top: 2.25rem;
     width: 28rem;
@@ -4733,7 +4724,7 @@ header.sticky {
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 
 @media screen and (max-width: 1412px) {
-    .mobilenavlist{
+    .mobilenavlist {
         left: -1000px;
     }
 
@@ -4745,25 +4736,26 @@ header.sticky {
         z-index: 1;
     }
 
-    .about{
+    .about {
         padding: 0;
         margin: 0;
     }
 
-    .services{
+    .services {
         padding-top: 0;
         padding-bottom: 0;
     }
 
-    .myskills{
+    .myskills {
         padding: 0 1rem;
     }
+
     .container_css {
         max-width: 1200px;
         transform: scale(0.85);
     }
 
-    .edu .container_css{
+    .edu .container_css {
         transform: scale(0.98);
     }
 
@@ -4844,12 +4836,12 @@ header.sticky {
         display: block;
     }
 
-    .about{
+    .about {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
     }
 
-    .myskills{
+    .myskills {
         padding: 120px 1rem 0 0;
     }
 
@@ -4915,6 +4907,7 @@ header.sticky {
     .procard {
         height: 350px;
     }
+
     .procard_2 {
         height: 350px;
     }
@@ -5336,6 +5329,7 @@ header.sticky {
         width: 375px;
         height: 400px;
     }
+
     .hero {
         padding: 15rem 1rem;
         padding-bottom: 5rem;
@@ -5492,7 +5486,7 @@ header.sticky {
 }
 
 @layer base {
-  :root {
+    :root {
         --radius: 0.5rem;
     }
 }
@@ -5500,12 +5494,12 @@ header.sticky {
 /* Cards coding */
 
 .wrapper {
-    border: 2px solid ;
+    border: 2px solid;
     /* width: 100%;
     height: 100vh; */
     width: 100%;
     height: 100%;
-    height:auto;
+    height: auto;
     width: auto;
     display: flex;
     align-items: center;
@@ -5530,11 +5524,11 @@ header.sticky {
     /* margin: 0 10px; */
     display: flex;
     align-items: flex-end;
-    transition: .6s cubic-bezier(.28,-0.03,0,.99);
-    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+    transition: .6s cubic-bezier(.28, -0.03, 0, .99);
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
 }
 
-.card > .row {
+.card>.row {
     /* color: white; */
     display: flex;
     flex-wrap: nowrap;
@@ -5544,7 +5538,7 @@ header.sticky {
 }
 
 
-.card > .row > .icon {
+.card>.row>.icon {
     background: #223;
     color: white;
     border-radius: 50%;
@@ -5555,7 +5549,7 @@ header.sticky {
     margin: 15px;
 }
 
-.card > .row > .description {
+.card>.row>.description {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -5576,6 +5570,7 @@ header.sticky {
 .description h4 {
     text-transform: uppercase;
 }
+
 /* 
 input {
     display: none;
@@ -5609,25 +5604,27 @@ input:checked + label .description {
 
 
 /* education category icons */
-.edu_icons{
+.edu_icons {
     color: #0066ff;
 }
 
-.certificate_card{
+.certificate_card {
     background-color: #090129;
 }
-.dark .certificate_card{
+
+.dark .certificate_card {
     background-color: #fff;
     color: #1a1a1a;
 }
-.certificate_card img{
+
+.certificate_card img {
     width: 100%;
     height: 100%;
     max-height: 250px;
     object-fit: cover;
 }
 
-.c_category{
+.c_category {
     padding: 2px 7px 2px 7px;
     background-color: #00000044;
     border-radius: 0.2rem;
@@ -5636,13 +5633,13 @@ input:checked + label .description {
     /* letter-spacing: 1px; */
 }
 
-.c_year{
+.c_year {
     font-size: 0.8rem;
     letter-spacing: 1px;
     opacity: 0.6;
 }
 
-.c_institute{
+.c_institute {
     padding: 2px 7px 2px 7px;
     border-radius: 0.5rem;
     width: fit-content;
@@ -5652,28 +5649,32 @@ input:checked + label .description {
     opacity: 0.8;
 }
 
-.c_category_card{
+.c_category_card {
     background-color: #11012e;
     border: 1px solid #0066ff;
     transition: all 0.3s ease;
 }
-.dark .c_category_card{
+
+.dark .c_category_card {
     background-color: #fff;
     color: #00041f;
 }
-.c_category_card:hover{
+
+.c_category_card:hover {
     background-color: #2a1f81;
     border: 1px solid #0066ff70;
 }
-.dark .c_category_card:hover{
+
+.dark .c_category_card:hover {
     background-color: #c9c9c9;
 }
-.c_button{
+
+.c_button {
     background-color: #0000004f;
     transition: all 0.3s ease;
 }
 
-.c_button:hover{
+.c_button:hover {
     background-color: #00000050;
     color: #0066ff9a;
 }

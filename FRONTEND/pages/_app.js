@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
-import {Particles} from "@/components/magicui/particles"
+import { Particles } from "@/components/magicui/particles"
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import Head from 'next/head';
@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
     }
 
     // simulate loading delay
-    setTimeout(handleComplete, 3000);
+    setTimeout(handleComplete, 500);
 
     return () => {
       clearTimeout(handleComplete)
@@ -58,15 +58,15 @@ export default function App({ Component, pageProps }) {
   }, [])
 
   return <>
-     <Head>
-        <meta name="description" content="Nazeem Khan – Professional web developer specializing in MERN stack, Python Django, and Next.js. Let's build robust and scalable web applications tailored to your business needs. Contact me today!" />
-      </Head>
+    <Head>
+      <meta name="description" content="Nazeem Khan – Professional web developer specializing in MERN stack, Python Django, and Next.js. Let's build robust and scalable web applications tailored to your business needs. Contact me today!" />
+    </Head>
     <Preloader isLoading={isLoading} />
     <Header />
     {/* <FloatingNav navItems={navItems} /> */}
     {!isLoading && (
-      <main id="site-wrapper bg-black-100 dark:bg-white-100">
-          <Component {...pageProps} />
+      <main id="site-wrapper" className="bg-black-100 dark:bg-white-100">
+        <Component {...pageProps} />
       </main>
     )}
     <Footer />

@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://nazeem-khan-portfolio.vercel.app/
+Host: https://nazeemkhan.com
 
 # Sitemaps
-Sitemap: https://nazeem-khan-portfolio.vercel.app/sitemap.xml
+Sitemap: https://nazeemkhan.com/sitemap.xml

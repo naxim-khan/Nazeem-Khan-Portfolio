@@ -27,13 +27,15 @@ export function FlipText({
       <AnimatePresence mode="wait">
         {word.split("").map((char, i) => (
           <motion.span
-            key={i}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={framerProps}
-            transition={{ duration, delay: i * delayMultiple }}
-            className={cn("origin-center drop-shadow-sm", className)}
+            {...({
+              key: i,
+              initial: "hidden",
+              animate: "visible",
+              exit: "hidden",
+              variants: framerProps,
+              transition: { duration, delay: i * delayMultiple },
+              className: cn("origin-center drop-shadow-sm", className),
+            } as any)}
           >
             {char}
           </motion.span>

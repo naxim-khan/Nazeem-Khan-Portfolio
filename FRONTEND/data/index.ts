@@ -11,7 +11,7 @@ export const gridItems = [
     id: 1,
     title: "I prioritize client collaboration, fostering open communication ",
     description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh] ", 
+    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh] ",
     imgClassName: "w-full h-full",
     titleClassName: "justify-end",
     img: "/b1.svg",
@@ -174,16 +174,16 @@ export const companies = [
 export const workExperience = [
   {
     id: 1,
-    title: "Frontend Development",
-    desc: "Developed responsive and interactive dashboards using React and Next.js for seamless user experiences.",
+    title: "Software Engineer - BXtrack Solutions",
+    desc: "Spearheading the development of production-grade web applications using the MERN stack and Next.js. Focused on engineering high-performance, scalable solutions and intuitive user experiences.",
     className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
   {
     id: 2,
-    title: "Back-End Systems Development",
-    desc: "Engineered scalable back-end dashboards with Node.js and Django, ensuring secure and efficient operations.",
-    className: "md:col-span-2", // change to md:col-span-2
+    title: "Full-Stack Development",
+    desc: "Developed responsive and interactive dashboards using React and Next.js for seamless user experiences.",
+    className: "md:col-span-2",
     thumbnail: "/exp2.svg",
   },
   {
@@ -221,5 +221,5 @@ export const HERO = {
   name: "NAZEEM KHAN",
   greet: "Hello there! 👋🏻",
   description:
-    "I am a passionate frontend developer with a knack for creating beautiful and functional user interfaces. I like transforming ideas into engaging web experiences for over a decade.",
+    "Software Engineer at BXtrack Solutions, specialized in architecting high-performance applications with the MERN Stack and Next.js. I transform complex problems into elegant, production-ready web experiences.",
 };

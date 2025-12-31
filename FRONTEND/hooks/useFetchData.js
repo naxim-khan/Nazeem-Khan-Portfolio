@@ -1,18 +1,18 @@
-const { default: axios } = require("axios");
-const { useState, useEffect } = require("react");
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 function useFetchData(apiEndpoint) {
-  const [alldata, setAlldata] = useState([]); 
-  const [loading, setLoading] = useState(true); 
+  const [alldata, setAlldata] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchAllData = async () => {
       try {
-        const res = await axios.get(apiEndpoint); 
-        setAlldata(res.data); 
-        setLoading(false); 
+        const res = await axios.get(apiEndpoint);
+        setAlldata(res.data);
+        setLoading(false);
       } catch (err) {
         console.error("Error fetching data: ", err.response || err.message);
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
@@ -22,7 +22,7 @@ function useFetchData(apiEndpoint) {
     }
   }, [apiEndpoint]); // Trigger useEffect whenever the API endpoint changes
 
-  return { alldata, loading }; 
+  return { alldata, loading };
 }
 
 export default useFetchData;

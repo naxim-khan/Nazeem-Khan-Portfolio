@@ -1,20 +1,23 @@
 "use client";
 
-import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BiDownload } from "react-icons/bi";
-import { FaGithub, FaInstagram, FaCalendarDay } from "react-icons/fa";
-import { FaFacebookF, FaGithubAlt, FaLinkedin, FaLinkedinIn, FaTwitter } from "react-icons/fa6";
+import { FaGithub, FaInstagram, FaCalendarDay, FaCode, FaLayerGroup, FaServer, FaCloud } from "react-icons/fa";
+import { FaFacebookF, FaGithubAlt, FaLinkedin, FaLinkedinIn, FaTwitter, FaTerminal, FaDatabase } from "react-icons/fa6";
 import { GoArrowUpRight } from 'react-icons/go';
 import { LuMedal } from "react-icons/lu";
-import Grid from "@/components/Grid";
-import { BackgroundBeams } from "@/components/ui/background-beams";
-import Experience from "@/components/Experience"
-import RecentProjects from "@/components/RecentProjects";
+import dynamic from "next/dynamic";
+
+// Dynamically load heavy components
+const Grid = dynamic(() => import("@/components/Grid"), { ssr: false });
+const Experience = dynamic(() => import("@/components/Experience"), { ssr: false });
+const RecentProjects = dynamic(() => import("@/components/RecentProjects"), { ssr: false });
+const BackgroundBeams = dynamic(() => import("@/components/ui/background-beams").then(m => m.BackgroundBeams), { ssr: false });
 
 // Recent Projects
 import { HyperText } from "@/components/magicui/hyper-text";
+import SEO from "@/components/SEO";
 
 
 export default function Home() {
@@ -34,20 +37,24 @@ export default function Home() {
   // services data
   const services = [
     {
-      title: "Full Stack Web Development",
-      description: "I develop robust, scalable, and high-performing web applications using cutting-edge technologies like React, Next.js, Node.js, Django, and the MERN stack. From front-end functionality to back-end systems, I deliver end-to-end solutions tailored to your unique requirements."
+      title: "MERN Stack Development",
+      description: "Building scalable, high-performance web applications using MongoDB, Express, React, and Node.js. Architecting end-to-end solutions from database design to frontend deployment.",
+      icon: <FaCode />
     },
     {
-      title: "API Development & Integration",
-      description: "I specialize in designing and implementing RESTful and GraphQL APIs, ensuring seamless integration with third-party services or custom-built systems. My expertise in Django and Node.js allows me to create reliable and efficient server-side solutions for your applications."
+      title: "Next.js & Frontend Engineering",
+      description: "Crafting modern, SEO-optimized, and lightning-fast user interfaces with Next.js 14, React Server Components, and Tailwind CSS. Focused on Core Web Vitals and UX.",
+      icon: <FaLayerGroup />
     },
     {
-      title: "Custom Web Application Development",
-      description: "I build tailored web applications that solve real-world problems and meet specific business needs. By leveraging modern frameworks and tools, I ensure applications are fast, secure, and maintainable for long-term success."
+      title: "Backend & API Architecture",
+      description: "Designing robust RESTful and GraphQL APIs with Node.js and Django. Implementing secure authentication, real-time features with WebSockets, and efficient database indexing.",
+      icon: <FaTerminal />
     },
     {
-      title: "Platform Optimization and Maintenance",
-      description: "I enhance and optimize existing web platforms to improve performance, scalability, and user experience. From debugging and refactoring code to implementing new features, I ensure your platform remains competitive and efficient in today’s fast-evolving digital landscape."
+      title: "Cloud Deployment & DevOps",
+      description: "Experience in deploying MERN applications to AWS, Vercel, and Docker. Implementing CI/CD pipelines, load balancing, and cloud-native scaling strategies.",
+      icon: <FaCloud />
     }
   ];
 
@@ -119,12 +126,11 @@ export default function Home() {
   return (
     <>
       {/* D:\3_Web_Projects\PortfolioWork\React_ThreeJs\3d_Portfolio> */}
-      <Head>
-        <title>Nazeem Khan - Personal Portfolio</title>
-        <meta name="description" content="nazeem khan- Personal Portfolio" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="shortcut icon" type="image/svg" href="/img/logo.svg" />
-      </Head>
+      <SEO
+        title="Home"
+        description="Professional MERN Stack web developer freelancer specialized in building premium, responsive, and high-performance web applications using React, Next.js, and Node.js."
+        keywords="MERN Stack web developer freelancer, React developer, Next.js developer, Full Stack Developer, Nazeem Khan, Portfolio"
+      />
 
       {/* hero section */}
       <section className="hero bg-black-100 dark:bg-[#dedddc] ">
@@ -139,14 +145,14 @@ export default function Home() {
         <div className="container_css">
           <div className="flex_css w-100_css flex items-center justify-center ">
             <div className="heroinfoleft">
-              <span className="hero_sb_title dark:text-[#414141] " data-ao='fade-right'>I'm Nazeem Khan </span>
-              <h1 className="hero_title bg-dot dark:text-[#2c2c2c]" data-ao='fade-left'>Full Stack Web Developer </h1>
+              <span className="hero_sb_title dark:text-[#414141] font-bold tracking-widest uppercase text-xs mb-4 block" data-ao='fade-right'>I'm Nazeem Khan </span>
+              <h1 className="hero_title bg-dot dark:text-[#2c2c2c] text-5xl lg:text-7xl font-bold mb-8 leading-tight bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent" data-ao='fade-left'>Full Stack Web Developer </h1>
 
               <div className="hero_img_box heroimgbox " data-aos='flip-left' data-aos-easing='ease-out-cubic' data-aos-duration='2000' >
                 <img src="/img/nazeem.jpg" alt="Nazeem khan" />
               </div>
 
-              <div className="lead dark:text-[#4d4d4d]" data-ao='fade-up' >I craft user-focused websites and applications to elevate your business and bring your ideas to life. Let's create something extraordinary together.</div>
+              <div className="lead dark:text-[#4d4d4d] max-w-xl text-lg text-slate-400 mb-10 leading-relaxed" data-ao='fade-up' >I craft user-focused websites and applications to elevate your business and bring your ideas to life. Let's create something extraordinary together.</div>
               <div className="hero_btn_box" data-aos='fade-up'>
                 <Link
                   href='/img/resume.pdf'
@@ -164,16 +170,10 @@ export default function Home() {
                   Download CV <BiDownload />
                 </Link>
                 <div className="subsocial">
-                  <ul className="hero_social flex ">
+                  <ul className="hero_social flex gap-4">
                     <li><a href="https://www.coursera.org/user/ed8917ae9cc8a33be8969325841526be" target="_blank" title="visit my X profile"><FaTwitter /> </a></li>
-                  </ul>
-                  <ul className="hero_social">
                     <li><a href="https://www.linkedin.com/in/nazeemkhannk/" target="_blank" title="visit my LinkedIn profile"><FaLinkedinIn /> </a></li>
-                  </ul>
-                  <ul className="hero_social">
                     <li><a href="https://github.com/naxim-khan" target="_blank" title="visit my GitHub profile"><FaGithub /> </a></li>
-                  </ul>
-                  <ul className="hero_social">
                     <li><a href="https://www.facebook.com/nzm.khan.5245" target="_blank" title="visit my FaceBook profile"><FaFacebookF /> </a></li>
                   </ul>
                 </div>
@@ -189,19 +189,19 @@ export default function Home() {
           </div>
 
           {/* funfact text */}
-          <div className="funfect_area flex_css flex-sb_css">
-            <div className="funfect_item" >
-              <h3><HyperText className='' text="3+" animateOnLoad={true} /></h3>
-              <h4>Years of <br /> Experience</h4>
-            </div>
-            <div className="funfect_item" >
-              <h3 className="flex items-center justify-center"><HyperText className='' text="20" animateOnLoad={true} />+</h3>
-              <h4>Projects <br /> Completed</h4>
-            </div>
-            <div className="funfect_item" >
-              <h3 className="flex items-center justify-center"><HyperText className='' text="25" animateOnLoad={true} />+</h3>
-              <h4>Happy <br /> Costumers</h4>
-            </div>
+          <div className="funfect_area relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-8 mt-20  mx-auto">
+            {[
+              { num: "3+", label: "Years of Experience" },
+              { num: "20+", label: "Projects Completed" },
+              { num: "10+", label: "Happy Clients" },
+            ].map((fact, i) => (
+              <div key={i} className="flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+                <h3 className="text-5xl font-bold text-indigo-500">
+                  <HyperText text={fact.num} />
+                </h3>
+                <h4 className="text-slate-400 text-sm font-medium leading-tight">{fact.label}</h4>
+              </div>
+            ))}
           </div>
 
         </div>
@@ -216,31 +216,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services */}
-      <section className=" services p-5 pb-0 h-fit_css max-h-fit bg-black-100 dark:bg-[#dedddc]">
+      <section className="services py-24 bg-black-100 dark:bg-[#dedddc]">
         <div className="container_css">
           <div className="services_titles">
-            <h2>My Quality Services</h2>
-            <p>We put your ideas and thus your wishes in the form of a unique web project that inspires you and your customers.</p>
+            <h2 className="text-3xl sm:text-5xl font-bold dark:text-gray-900 text-white mb-4">My Quality Services</h2>
+            <p className="text-slate-400 dark:text-gray-600">We put your ideas and thus your wishes in the form of a unique web project that inspires you and your customers.</p>
           </div>
 
-          <div className="services_menu">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-5">
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`services_item ${activeIndex === index ? 'sactive' : ''} `}
-                onMouseOver={() => handleHover(index)}
-                onMouseOut={handleMouseOut}
-               
+                className="group relative bg-white/5 dark:bg-black/5 backdrop-blur-sm border border-white/10 dark:border-black/5 p-8 sm:p-10 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-indigo-500/20 hover:-translate-y-2"
               >
-                <div className="left_s_box ">
-                  <span className="text-sm sm:text-xl ">0{index + 1}</span>
-                  <h3 className="text-lg sm:text-2xl">{service.title}</h3>
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl flex items-center justify-center text-3xl text-indigo-500 mb-6 group-hover:scale-110 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-500">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white dark:text-gray-900 mb-4 group-hover:text-indigo-400 dark:group-hover:text-indigo-600 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-slate-400 dark:text-gray-600 leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+                  <div className="flex items-center gap-2 text-indigo-400 dark:text-indigo-600 font-bold text-sm tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                    Explore Details
+                  </div>
                 </div>
-                <div className="right_s_box w-full  pr-0 sm:pr-[15%]">
-                  <p className="text-sm sm:text-xl ">{service.description}</p>
-                </div>
-                <GoArrowUpRight className="ml-4 hidden sm:block" />
+
+                {/* Background Glow */}
+                <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-indigo-500/20 blur-[100px] group-hover:bg-indigo-500/40 transition-all duration-500 rounded-full" />
               </div>
             ))}
           </div>
@@ -409,91 +414,61 @@ export default function Home() {
       </ section>
 
       {/* My Skills */}
-      < section className="myskills  bg-black-100 dark:bg-[#cecdcd]" >
+      <section className="myskills py-24 bg-black-100 dark:bg-[#cecdcd]">
         <div className="container_css">
-          <div className="myskills_title">
-            <h2>My Skills</h2>
-            <p>Below are the key technologies and frameworks I work with to build robust and scalable applications.</p>
+          <div className="services_titles">
+            <h2 className="text-3xl sm:text-5xl font-bold dark:text-gray-900 text-white mb-4">My Skills</h2>
+            <p className="text-slate-400 dark:text-gray-600">Below are the key technologies and frameworks I work with to build robust and scalable applications.</p>
           </div>
-          <div className="myskills_cards grid grid-cols-2 md:grid-cols-6 sm:grid-cols-4 gap-4">
-            <div className="mys_card ">
-              <div className="mys_inner">
-                <img src="/img/python.png" alt="python" />
-                <h3>92%</h3>
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
+            {[
+              { img: "python.png", name: "Python Django", pct: "92%" },
+              { img: "firebase.svg", name: "FireBase", pct: "85%" },
+              { img: "mongodb.svg", name: "MongoDB", pct: "92%" },
+              { img: "redux.svg", name: "Redux", pct: "88%" },
+              { img: "react.svg", name: "React / Next.js", pct: "95%" },
+              { img: "js.svg", name: "JavaScript", pct: "95%" }
+            ].map((skill, i) => (
+              <div key={i} className="group relative bg-white/5 dark:bg-black/5 backdrop-blur-md border border-white/10 dark:border-black/5 p-6 rounded-[2rem] text-center hover:-translate-y-2 transition-all duration-300">
+                <div className="relative z-10">
+                  <div className="w-16 h-16 mx-auto mb-4 p-3 bg-white/5 rounded-2xl group-hover:scale-110 transition-transform">
+                    <img src={`/img/${skill.img}`} alt={skill.name} className="w-full h-full object-contain" />
+                  </div>
+                  <h3 className="text-xl font-bold text-indigo-500 mb-1">{skill.pct}</h3>
+                  <p className="text-slate-400 dark:text-gray-600 text-xs font-bold uppercase tracking-widest">{skill.name}</p>
+                </div>
               </div>
-              <p className="text-center_css">Python Django</p>
-            </div>
-
-            <div className="mys_card">
-              <div className="mys_inner">
-                <img src="/img/firebase.svg" alt="firebase" />
-                <h3>80%</h3>
-              </div>
-              <p className="text-center_css">FireBase</p>
-            </div>
-
-            <div className="mys_card">
-              <div className="mys_inner">
-                <img src="/img/mongodb.svg" alt="MongoDB" />
-                <h3>92%</h3>
-              </div>
-              <p className="text-center_css">MongoDB</p>
-            </div>
-
-            <div className="mys_card">
-              <div className="mys_inner">
-                <img src="/img/redux.svg" alt="Redux" />
-                <h3>92%</h3>
-              </div>
-              <p className="text-center">Redux</p>
-            </div>
-
-            <div className="mys_card">
-              <div className="mys_inner">
-                <img src="/img/react.svg" alt="React" />
-                <h3>92%</h3>
-              </div>
-              <p className="text-center_css">React</p>
-            </div>
-
-            <div className="mys_card">
-              <div className="mys_inner">
-                <img src="/img/js.svg" alt="Js" />
-                <h3>95%</h3>
-              </div>
-              <p className="text-center">JavaScript</p>
-            </div>
+            ))}
           </div>
         </div>
-      </ section>
+      </section>
 
       {/* Recent Blogs */}
-      < section className="recentblogs bg-black-100 dark:bg-[#dedddc]" >
+      <section className="recentblogs py-24 bg-black-100 dark:bg-[#dedddc]">
         <div className="container_css">
-          <div className="myskills_title">
-            <h2>Recent Blogs</h2>
-            <p>I write about web development and Python, sharing tips, tutorials, and insights to help you stay updated with the latest trends and technologies.</p>
+          <div className="services_titles">
+            <h2 className="text-3xl sm:text-5xl font-bold dark:text-gray-900 text-white mb-4">Recent Blogs</h2>
+            <p className="text-slate-400 dark:text-gray-600">I write about web development and Python, sharing tips, tutorials, and insights to help you stay updated with the latest trends and technologies.</p>
           </div>
-          <div className="recent_blogs mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {allwork.slice(0, 3).map((blog) => {
-              return <Link href={`/blogs/${blog.slug}`} className="re_blog" key={blog._id}>
-                <div className="re_blogimg">
-                  <img src={blog.images[0] || '/img/noimage.png'} alt={blog.title} />
-                  <span>{blog.blogcategory[0]}</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {allwork.slice(0, 3).map((blog) => (
+              <Link href={`/blogs/${blog.slug}`} className="group relative bg-white/5 dark:bg-black/5 backdrop-blur-sm border border-white/10 dark:border-black/5 rounded-[2.5rem] overflow-hidden hover:-translate-y-2 transition-all duration-500 shadow-xl hover:shadow-indigo-500/10" key={blog._id}>
+                <div className="relative h-60 overflow-hidden">
+                  <img src={blog.images[0] || '/img/noimage.png'} alt={blog.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <span className="absolute top-4 left-4 px-4 py-2 rounded-full bg-indigo-600/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-widest">{blog.blogcategory[0]}</span>
                 </div>
-                <div className="re_bloginfo">
-                  <div className="re_topdate flex_css gap-1_css">
-                    <div className="res_date">
-                      <FaCalendarDay /> <span>{formatDate(new Date(blog.createdAt))}</span>
-                    </div>
+                <div className="p-8">
+                  <div className="flex items-center gap-2 text-slate-500 dark:text-gray-500 text-xs font-bold mb-4">
+                    <FaCalendarDay className="text-indigo-500" />
+                    <span>{formatDate(new Date(blog.createdAt))}</span>
                   </div>
-                  <h2>{blog.title}</h2>
+                  <h2 className="text-xl font-bold text-white dark:text-gray-900 line-clamp-2 leading-tight group-hover:text-indigo-400 dark:group-hover:text-indigo-600 transition-colors">{blog.title}</h2>
                 </div>
               </Link>
-            })}
+            ))}
           </div>
         </div>
-      </ section>
+      </section>
 
     </>
   );

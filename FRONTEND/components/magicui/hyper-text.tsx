@@ -76,9 +76,11 @@ export function HyperText({
       <AnimatePresence mode="wait">
         {displayText.map((letter, i) => (
           <motion.h1
-            key={i}
-            className={cn("font-mono", letter === " " ? "w-3" : "", className)}
-            {...framerProps}
+            {...({
+              key: i,
+              className: cn("font-mono", letter === " " ? "w-3" : "", className),
+              ...framerProps,
+            } as any)}
           >
             {letter.toUpperCase()}
           </motion.h1>

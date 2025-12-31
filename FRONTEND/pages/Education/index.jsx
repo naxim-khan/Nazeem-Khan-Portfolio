@@ -3,41 +3,21 @@ import Spinner from "@/components/Spinner";
 import useFetchData from "@/hooks/useFetchData";
 import Head from "next/head";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 import Marquee from '@/components/magicui/marquee'
-// import Particles from '@/components/magicui/particles'
+import Particles from '@/components/magicui/particles'
 import { ShineBorder } from "@/components/magicui/shine-border";
+import { BoxReveal } from "@/components/magicui/box-reveal";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
-import { BiDownload, BiCollection } from "react-icons/bi";
+import { BiCollection } from "react-icons/bi";
 import Certificates from "@/components/Certificates";
+import SEO from "@/components/SEO";
 
-
-export const FadeUp = (delay) => {
-    return {
-        initial: {
-            opacity: 0,
-            y: 50,
-        },
-        animate: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                type: "spring",
-                stiffness: 100,
-                duration: 0.5,
-                delay: delay,
-                ease: "easeInOut",
-            },
-        },
-    };
-};
-
-
-
-export default function shop() {
-
+export default function EducationPage() {
     const { alldata, loading } = useFetchData('/api/education')
     const publisheddata = alldata.filter(ab => ab.status === 'publish');
+
     const handleScroll = () => {
         const certificatesSection = document.getElementById('certificates');
         if (certificatesSection) {
@@ -45,128 +25,122 @@ export default function shop() {
         }
     };
 
-    // search
     const [searchQuery, setSearchQuery] = useState('');
+    const filteredData = searchQuery.trim() === ''
+        ? publisheddata
+        : publisheddata.filter(blog => blog.title.toLowerCase().includes(searchQuery.toLowerCase()))
 
-    // filter all data based on search query
-    const filteredData = searchQuery.trim() === '' ? publisheddata : publisheddata.filter(blog => blog.title.toLowerCase().includes(searchQuery))
+    return (
+        <>
+            <SEO
+                title="Education & Certifications | Nazeem Khan"
+                description="Explore my academic journey and professional certifications as a Software Engineer. Graduated in Computer Science from the University of Peshawar, currently building production-grade apps at BXtrack Solutions."
+                keywords="Computer Science Education, Web Development Certifications, MERN Stack Course, Nazeem Khan Education"
+            />
 
-    return <>
-        <Head>
-            <title>Certificates</title>
-        </Head>
+            <section className="relative min-h-screen bg-[#050510] dark:bg-[#f3f4f6] text-white dark:text-gray-900 transition-colors duration-500 overflow-hidden">
+                {/* Background Particles */}
+                <Particles
+                    className="absolute inset-0 z-0 opacity-40 dark:opacity-20"
+                    quantity={120}
+                    staticity={30}
+                    color={typeof window !== 'undefined' && document.body.classList.contains('dark') ? "#6366f1" : "#4f46e5"}
+                    size={0.6}
+                />
 
-        {/* hero section */}
-        <section className="max-w-[1300px] bg-black-100 dark:bg-[#dedddc] m-auto">
-            {/* <Particles className="absolute w-full h-full top-0 bottom-0 dark:text-black-100" quantity={100} size={0.6} /> */}
+                <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 py-12 lg:py-16">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div className="flex flex-col items-start space-y-8">
+                            <div className="space-y-4">
+                                <BoxReveal boxColor="#6366f1" duration={0.6}>
+                                    <span className="text-sm font-bold tracking-[0.2em] text-indigo-500 uppercase">
+                                        Learning & Growth
+                                    </span>
+                                </BoxReveal>
 
-            <div className=" px-2 sm:px-8">
+                                <BoxReveal boxColor="#6366f1" duration={0.8}>
+                                    <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white dark:text-gray-900">
+                                        Academic<br />
+                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500 italic">Journey.</span>
+                                    </h1>
+                                </BoxReveal>
 
-                <div className="w-full grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 items-center pt-8 justify-center">
-                    <div className="heroinfoleft-2 flex flex-col items-center md:items-start w-full custom-1008:py-32 custom-1008:items-center custom-1008:justify-center custom-1008:flex custom-1008:pb-0 custom-1008:px-0 custom-1008:w-full">
-                        <span className="hero_sb_title dark:text-[#414141] " data-aos='fade-right'>Academic Journey &</span>
-                        <h1 className="hero_title bg-dot dark:text-[#2c2c2c]" data-aos='fade-left'>Certification</h1>
+                                <BoxReveal boxColor="#6366f1" duration={1}>
+                                    <p className="max-w-xl text-lg text-slate-400 dark:text-gray-600 leading-relaxed">
+                                        Graduated in <span className="text-white dark:text-indigo-600 font-medium">Computer Science</span> from the University of Peshawar, I am now thriving as a <span className="text-white dark:text-indigo-600 font-medium">Software Engineer</span> at <a href="https://bxtrack.com/" target="_blank" rel="noopener noreferrer" className="text-indigo-500 font-bold hover:underline decoration-indigo-500/30 underline-offset-4">BXtrack Solutions</a>. I specialize in crafting high-performance, production-ready applications using the <span className="text-white dark:text-indigo-600 font-medium">MERN Stack</span> and <span className="text-white dark:text-indigo-600 font-medium">Next.js</span>, dedicated to delivering seamless user experiences through modern engineering practices.
+                                    </p>
+                                </BoxReveal>
+                            </div>
 
-                        <div className="lead dark:text-[#4d4d4d]" data-aos='fade-up' >I'm a final-semester Computer Science student at the University of Peshawar with expertise in programming, Web development, and MERN stack. I also hold a Diploma in IT and completed Full-Stack Web Development courses, preparing me for success in tech.</div>
-                        <div className="mt-8" data-aos='fade-up'>
-                            {/* <div className="subemail">
-                                <form className="flex_css" onSubmit={(event) => {
-                                    event.preventDefault();
-                                    const certificatesSection = document.getElementById("certificates");
-                                    if (certificatesSection) {
-                                        certificatesSection.scrollIntoView({ behavior: "smooth", block: "start" });
-                                    }
-                                }}>
-                                    <input
-                                        value={searchQuery}
-                                        onChange={ev => setSearchQuery(ev.target.value)}
-                                        type="text"
-                                        placeholder="Search Certificate by title ..."
-                                    />
-                                    <button type="submit">Search</button>
-                                </form>
-                            </div> */}
-                            <button
-                                onClick={handleScroll}
-                                className="flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 hover:shadow-lg focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 transition-all duration-300"
-                            >
-                                View All Certificates
-                                <BiCollection className="ml-2 text-2xl" />
-                            </button>
+                            <BoxReveal boxColor="#6366f1" duration={1.2}>
+                                <button
+                                    onClick={handleScroll}
+                                    className="group relative flex items-center gap-3 px-8 py-3.5 rounded-xl font-bold text-[11px] tracking-[0.2em] uppercase transition-all duration-500 overflow-hidden"
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                                    <span className="relative z-10 text-white flex items-center gap-2">
+                                        Explore Certifications
+                                        <BiCollection className="text-lg group-hover:translate-x-1 transition-transform duration-500" />
+                                    </span>
+                                </button>
+                            </BoxReveal>
                         </div>
-                    </div>
 
-                    <div className=" px-2 py-8">
-                        <div className=" h-full flex items-center justify-center max-md:mt-0  pt-0 md:pt-1 sm:pt-8  px-4 max-sm:min-w-auto max-sm:w-full">
+                        <div className="relative" data-aos="zoom-in" data-aos-duration="1000">
+                            <div className="absolute -inset-4 bg-indigo-500/20 blur-3xl rounded-full animate-pulse"></div>
                             <AnimatedTestimonials />
                         </div>
                     </div>
-                </div>
 
-                <div className="container_css relative flex items-center justify-center flex-col">
+                    {/* Marquee Section */}
+                    <div className="mt-12 relative group" data-aos="fade-up">
+                        <div className="flex flex-col items-center mb-6 text-center">
+                            <h2 className="text-[10px] font-bold tracking-[0.3em] text-slate-500 dark:text-slate-400 uppercase mb-2">Honors & Accreditations</h2>
+                            <div className="w-8 h-0.5 bg-indigo-500/50"></div>
+                        </div>
 
-                    <div className="relative bg-transparent w-full " >
-                        <Marquee pauseOnHover className="[--duration:10s] container_css overflow-hidden">
-                            {loading ? (
-                                <div className="flex_css flex-center_css wh_100_css w-full"><Spinner /></div>
-                            ) : filteredData.length === 0 ? (
-                                <div className="w-full text-center py-10 text-xl text-gray-500">No data found</div>
-                            ) : (
-                                filteredData.map((data) => (
+                        <div className="relative flex items-center justify-center flex-col w-full overflow-hidden py-4">
+                            <Marquee pauseOnHover className="[--duration:45s]">
+                                {loading ? (
+                                    Array(4).fill(0).map((_, i) => (
+                                        <div key={i} className="w-[280px] h-[160px] rounded-xl bg-white/5 dark:bg-black/5 animate-pulse mx-4" />
+                                    ))
+                                ) : filteredData.map((data) => (
                                     <ShineBorder
-                                        className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg p-3 bg-transparent dark:border-none dark:bg-transparent md:shadow-xl "
-                                        color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+                                        key={data.slug}
+                                        className="relative flex w-[280px] sm:w-[380px] mx-4 flex-col items-center justify-center overflow-hidden rounded-xl p-0 bg-transparent dark:border-none shadow-2xl border border-white/5 dark:border-black/5"
+                                        color={["#6366f1", "#a855f7", "#6366f1"]}
                                         borderWidth={2}
-                                        duration={15}
-                                        key={data.slug}  // Adding a unique key for each item in the list
+                                        duration={10}
+                                        borderRadius={12}
                                     >
-                                        <Link href={`/Education/${data.slug}`} className="overflow-hidden">
-                                            <img src={data.images[0]} className="max-h-[200px] sm:max-h-[300px] rounded-lg" />
+                                        <Link href={`/Education/${data.slug}`} className="w-full block">
+                                            <img
+                                                src={data.images[0]}
+                                                className="w-full aspect-video object-cover transition-transform duration-700 hover:scale-105"
+                                                alt={data.title}
+                                            />
                                         </Link>
                                     </ShineBorder>
-                                ))
-                            )}
-                        </Marquee>
+                                ))}
+                            </Marquee>
+                            {/* Gradients */}
+                            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-[#050510] dark:from-[#f3f4f6]"></div>
+                            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[#050510] dark:from-[#f3f4f6]"></div>
+                        </div>
                     </div>
 
-                    <div className="pointer-events-none absolute inset-y-0 left-0 w-[40%]  bg-gradient-to-r from-black-100 dark:from-[#dedddc]"></div>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 w-[40%]  bg-gradient-to-l from-black-100 dark:from-[#dedddc]"></div>
+                    {/* Main Content */}
+                    <div className="mt-16">
+                        <div className="flex flex-col items-center mb-10 text-center" data-aos="fade-up">
+                            <h2 className="text-2xl lg:text-4xl font-bold text-white dark:text-gray-900 mb-2">Detailed Credentials</h2>
+                            <p className="text-xs text-slate-500 dark:text-slate-600 max-w-xl">A comprehensive collection of my education, professional diplomas, and skill certifications.</p>
+                        </div>
+                        <Certificates />
+                    </div>
                 </div>
-
-                {/* <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-10 mt-8 " id="certificates">
-
-                    {loading ? (
-                        <div className="flex_css flex-center_css wh_100_css w-full"><Spinner /></div>
-                    ) : filteredData.length === 0 ? (
-                        <div className="w-full text-center py-10 text-xl text-gray-500">No data found...!</div>
-                    ) : (
-                        filteredData.map((data) => (
-                            <div className="w-full h-full relative group">
-                                <Link href={`/Education/${data.slug}`}>
-                                    <ShineBorder
-                                        className="relative flex  w-full flex-col items-center justify-center overflow-hidden rounded-lg p-2 sm:p-3 bg-transparent dark:border-none dark:bg-transparent md:shadow-xl border border-slate-400"
-                                        color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-                                        borderWidth={2}
-                                        duration={15}
-                                    >
-                                        <div className="relative w-full  group">
-                                            <img className=" max-w-full rounded-lg" src={data.images[0] || "/img/no-image.png"} alt="" />
-                                            <div className="absolute bottom-0 left-0 w-full rounded-b-lg text-white text-center p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 certificate-bg">
-                                                <h2 className="text-white text-sm font-bold  md:text-lg sm:text-xl">{data.title}</h2>
-                                            </div>
-                                        </div>
-
-                                    </ShineBorder>
-                                </Link>
-                            </div>
-                        ))
-                    )}
-                </div> */}
-
-                <Certificates />
-
-            </div>
-
-        </section>
-    </>
+            </section>
+        </>
+    );
 }

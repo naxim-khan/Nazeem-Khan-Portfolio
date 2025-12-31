@@ -92,7 +92,7 @@ const RecentProjects: React.FC = () => {
         "#1C1C1C", // Very dark gray
         "#006400", // Dark green
     ];
-    
+
 
     const generateRandomDarkColor = () => {
         const randomIndex = Math.floor(Math.random() * predefinedColors.length);
@@ -157,11 +157,11 @@ const RecentProjects: React.FC = () => {
                     </button>
                 </Dock>
 
-                <div className="grid   grid-cols-1 md:grid-cols-2  sm:grid-cols-1 lg:grid-cols-2 gap-8 py-10 px-4 sm:px-10 ">
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 py-10 px-4 sm:px-10 max-w-7xl mx-auto">
 
                     {filteredProjects.slice(0, 4).map((item, i) => (
                         <>
-                            <div key={item.id} className="relative  bg-gray-800 dark:bg-white-100 bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-lg p-1 sm:p-4 md:p-2 lg:p-3 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                            <div key={item.id} className="relative bg-white/5 dark:bg-black/5 hover:bg-white/10 dark:hover:bg-black/10 backdrop-filter backdrop-blur-lg rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-white/10 dark:border-black/5 flex flex-col h-full group">
                                 {/* <Particles
                                     className='absolute  inset-0 size-full '
                                     color={'#9c38ff'}
@@ -175,45 +175,35 @@ const RecentProjects: React.FC = () => {
                                         <img src={(item.images && item.images[0]) || '/img/noimage.png'} alt="cover" className="w-full h-full object-cover rounded-lg absolute p-1  overflow-hidden" />
                                     </div>
                                 </Lens>
-                                <h1 className="font-normal sm:font-bold text-lg sm:text-xl line-clamp-1 mb-2 text-white px-2  dark:text-gray-800">
+                                <h1 className="font-bold text-xl line-clamp-1 mb-2 text-white px-2 tracking-tight dark:text-gray-900 group-hover:text-indigo-400 transition-colors">
                                     {formatText(item.title, 40)}
                                 </h1>
-                                <p className=" text-slate-300 dark:text-slate-700 mb-4 text-[0.9em] sm:text-[1em] line-clamp-2 px-2 ">
+                                <p className="text-slate-400 dark:text-slate-600 mb-6 text-sm line-clamp-2 px-2 leading-relaxed">
                                     {formatText(item.description, 100)}
                                 </p>
-                                
+
                                 {/* tech stack boxes */}
                                 <hr className='w-full dark:border-black-100/10 border-white-100/20 mb-2' />
-                                <span className='px-2 pb-4 text-[0.9em] sm:text-[1em] text-white dark:text-black-100 '>Technologies Used ⤵</span> 
-                                <div className="flex flex-wrap gap-2 px-2 pb-4 py-2 ">
+                                <span className='px-2 text-xs font-bold text-indigo-500 uppercase tracking-widest mb-3 block'>Technologies Used</span>
+                                <div className="flex flex-wrap gap-2 px-2 mb-6">
                                     {item.tags.map((tag, index) => (
-
                                         <div
                                             key={`${index}-${i}`}
-                                            className="px-2 py-[0.2rem]  rounded-lg text-white text-sm  shadow-md"
-                                            style={{
-                                                backgroundColor: generateRandomDarkColor(),
-                                            }}
+                                            className="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 dark:text-indigo-600 text-[10px] font-bold uppercase tracking-wider"
                                         >
                                             {tag}
                                         </div>
-
                                     ))}
                                 </div>
                                 <hr className='w-full dark:border-black-100/10 border-white-100/20 mb-2' />
 
-                                <div className="flex items-center justify-between mt-3 p-2">
-                                    <Link href={`/projects/${item.slug}`} className="hover:text-white-100 text-[#8d29ff] border border-[#8d29ff]/30 px-3 py-1 rounded-full dark:hover:text-slate-700 font-semibold text-sm sm:text-[1rem] flex items-center justify-center " title='Project details page'>
-                                        Details <ChevronRight />
+                                <div className="flex items-center justify-between mt-auto p-2">
+                                    <Link href={`/projects/${item.slug}`} className="group/btn flex items-center gap-2 text-white dark:text-gray-900 font-bold text-sm bg-white/5 dark:bg-black/5 border border-white/10 dark:border-black/5 px-4 py-2 rounded-xl hover:bg-indigo-600 hover:text-white transition-all shadow-lg active:scale-95">
+                                        View Details <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                                     </Link>
-                                    <div className='z-100   text-white-100 '>
-                                        <Link href={`${item.livepreview}`} target='_blank'>
-                                            <div className="flex items-center text-purple-600 dark:text-white bg-transparent dark:bg-slate-800/30 px-4 sm border border-white/30 py-2 rounded-full backdrop-blur-lg ">
-                                                <p className="text-sm sm:text-[1rem] ">Live-Preview</p>
-                                                <FaLocationArrow className="ml-2" />
-                                            </div>
-                                        </Link>
-                                    </div>
+                                    <Link href={`${item.livepreview}`} target='_blank' className="flex items-center gap-2 text-indigo-400 dark:text-indigo-600 font-black text-sm hover:underline underline-offset-8 decoration-indigo-500/30">
+                                        Live Demo <FaLocationArrow className="w-3 h-3" />
+                                    </Link>
                                 </div>
 
                                 <BorderBeam

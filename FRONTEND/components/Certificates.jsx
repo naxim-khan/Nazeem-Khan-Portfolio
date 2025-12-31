@@ -1,140 +1,125 @@
 import React, { useState, useRef } from 'react';
+import Link from 'next/link';
 import useFetchData from '@/hooks/useFetchData';
 import { FaGraduationCap, FaCertificate, FaTrophy, FaScroll, FaEye } from 'react-icons/fa6';
 import Spinner from "@/components/Spinner";
-import { ShineBorder } from "@/components/magicui/shine-border";
+import { MagicCard } from "@/components/magicui/magic-card";
 
 const Certificates = () => {
     const certificatesRef = useRef(null);
     const { alldata, loading } = useFetchData('/api/education');
     const publisheddata = alldata.filter(ab => ab.status === 'publish');
 
-    // Categories
     const categories = [
-        {
-            icon: <FaGraduationCap />,
-            title: 'Degrees',
-            description: 'Academic Degrees',
-            categoryKey: 'Degree',
-        },
-        {
-            icon: <FaCertificate />,
-            title: 'Certificates',
-            description: 'Professional certifications',
-            categoryKey: 'Certificate',
-        },
-        {
-            icon: <FaScroll />,
-            title: 'Diplomas',
-            description: 'Professional diplomas',
-            categoryKey: 'Diploma',
-        },
-        {
-            icon: <FaTrophy />,
-            title: 'Achievements',
-            description: 'Awards and special recognitions',
-            categoryKey: 'Awards/Achievements',
-        },
+        { icon: <FaGraduationCap />, title: 'Degrees', categoryKey: 'Degree' },
+        { icon: <FaCertificate />, title: 'Certificates', categoryKey: 'Certificate' },
+        { icon: <FaScroll />, title: 'Diplomas', categoryKey: 'Diploma' },
+        { icon: <FaTrophy />, title: 'Achievements', categoryKey: 'Awards/Achievements' },
     ];
 
-    // State for selected category
     const [selectedCategory, setSelectedCategory] = useState(null);
-
-    // Search
     const [searchQuery, setSearchQuery] = useState('');
 
-    // Handle category click
     const handleCategoryClick = (categoryKey) => {
-        setSelectedCategory(categoryKey); // Update selected category
+        setSelectedCategory(categoryKey === selectedCategory ? null : categoryKey);
         if (certificatesRef.current) {
-            certificatesRef.current.scrollIntoView({ behavior: 'smooth' }); // Scroll to certificates section
+            certificatesRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
 
-    // Filtered data
     const filteredData = searchQuery.trim() === ''
         ? (selectedCategory ? publisheddata.filter(cert => cert.Category[0] === selectedCategory) : publisheddata)
         : (selectedCategory
-            ? publisheddata.filter(cert => cert.Category[0] === selectedCategory && cert.title.toLowerCase().includes(searchQuery))
-            : publisheddata.filter(cert => cert.title.toLowerCase().includes(searchQuery))
+            ? publisheddata.filter(cert => cert.Category[0] === selectedCategory && cert.title.toLowerCase().includes(searchQuery.toLowerCase()))
+            : publisheddata.filter(cert => cert.title.toLowerCase().includes(searchQuery.toLowerCase()))
         );
 
     return (
-        <div className="min-h-screen mt-8">
-            <div className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 w-full">
-                {/* Categories */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-12 gap-8 py-8">
+        <div className="w-full mt-4">
+            <div className="pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl m-auto">
+                {/* Professional Category Selector */}
+                <div className="flex flex-wrap justify-center gap-4 mb-20" data-aos="fade-up">
                     {categories.map((item, index) => (
-                        <div
+                        <button
                             key={index}
-                            className="c_category_card bg-[#1f1f70] rounded-lg p-6 hover:bg-gray-750 transition-all cursor-pointer border border-[#252586] hover:border-indigo-500 group"
-                            onClick={() => handleCategoryClick(item.categoryKey)} // Use the handler
+                            onClick={() => handleCategoryClick(item.categoryKey)}
+                            className={`flex items-center gap-3 px-6 py-2.5 rounded-xl border text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-500 backdrop-blur-md group
+                                ${selectedCategory === item.categoryKey
+                                    ? 'bg-indigo-600 border-indigo-600 text-white shadow-[0_0_20px_rgba(79,70,229,0.3)]'
+                                    : 'bg-white/5 dark:bg-black/5 border-white/10 dark:border-black/5 text-slate-400 dark:text-slate-600 hover:border-indigo-500/50 hover:text-indigo-400'
+                                }`}
                         >
-                            <div className="edu_icons mb-4 text-2xl">{item.icon}</div>
-                            <h3 className="font-semibold mb-2">{item.title}</h3>
-                            <p className="text-sm text-gray-400">{item.description}</p>
-                        </div>
+                            <span className={`text-lg transition-transform duration-500 group-hover:scale-110 ${selectedCategory === item.categoryKey ? 'text-white' : 'text-indigo-500'}`}>{item.icon}</span>
+                            {item.title}
+                        </button>
                     ))}
                 </div>
 
-                {/* Certificates Section */}
+                {/* Certificates Grid */}
                 <div
-                    ref={certificatesRef} // Attach the ref here
+                    ref={certificatesRef}
                     id="certificates"
-                    className="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-8 w-full"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 sm:gap-10 w-full"
                 >
                     {loading ? (
-                        <div className="flex_css flex-center_css wh_100_css w-full">
+                        <div className="col-span-full h-[400px] flex items-center justify-center">
                             <Spinner />
                         </div>
                     ) : filteredData.length === 0 ? (
-                        <div className="w-full text-center py-10 text-xl text-gray-500">
-                            {selectedCategory ? `${selectedCategory} Isn't Uploaded Yet!` : 'No data found'}
+                        <div className="col-span-full text-center py-20 bg-white/5 rounded-3xl border border-white/5 backdrop-blur-sm" data-aos="fade-up">
+                            <h3 className="text-xl font-semibold text-slate-300 mb-1">No matches found</h3>
+                            <p className="text-sm text-slate-500">{selectedCategory ? `No items in ${selectedCategory} yet` : 'Try a different search'}</p>
                         </div>
                     ) : (
                         filteredData.map((certificate, index) => (
-                            <ShineBorder
-                                className="relative text-white-100  rounded-lg max-w-fit max-h-fit m-0 p-0 bg-transparent dark:border-none dark:bg-transparent md:shadow-xl"
-                                color={['#A07CFE', '#FE8FB5', '#FFBE7B']}
-                                borderWidth={1}
-                                duration={15}
-                                key={index}
-                            >
-                                <div
-                                    key={index}
-                                    className="certificate_card rounded-lg overflow-hidden group hover:ring-2 hover:ring-indigo-500 transition-all"
+                            <div key={index} data-aos="fade-up" data-aos-delay={index * 50}>
+                                <MagicCard
+                                    className="cursor-default flex flex-col h-full border-white/5 dark:border-black/5 bg-[#0f0f1a]/40 dark:bg-white backdrop-blur-xl hover:border-indigo-500/30 transition-all duration-500 rounded-2xl overflow-hidden group shadow-lg"
+                                    gradientColor={typeof window !== 'undefined' && document.body.classList.contains('dark') ? "rgba(99, 102, 241, 0.1)" : "rgba(99, 102, 241, 0.05)"}
                                 >
-                                    <div className="relative w-full h-48">
+                                    <div className="w-full relative aspect-[16/10] overflow-hidden">
                                         <img
                                             src={certificate.images[0] || '/img/no-image.png'}
                                             alt={certificate.title}
-                                            className="w-full object-cover"
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
-                                    </div>
-                                    <div className="p-6">
-                                        <h3 className="mb-2">{certificate.title}</h3>
-                                        <div className="flex items-center justify-between">
-                                            <p className="c_institute text-sm text-slate-500">{certificate.Institute}</p>
-                                            <span className="c_year text-slate-500 text-sm">
-                                                {certificate.createdAt ? new Date(certificate.createdAt).getFullYear() : 'N/A'}
+                                        <div className="absolute top-3 right-3 z-20">
+                                            <span className="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-bold text-indigo-400 tracking-wider">
+                                                {certificate.createdAt ? new Date(certificate.createdAt).getFullYear() : '2025'}
                                             </span>
                                         </div>
-                                        <a
-                                            href={certificate.slug ? `/Education/${certificate.slug}` : '#'}
-                                            className="c_button mt-4 flex items-center justify-center rounded-sm gap-2"
-                                        >
-                                            <FaEye />
-                                            <button
-                                                className={`inline-block py-2 ${
-                                                    !certificate.slug ? 'bg-gray-500 cursor-not-allowed' : 'bg-indigo-500 hover:bg-indigo-600'
-                                                }`}
-                                            >
-                                                View Details
-                                            </button>
-                                        </a>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f1a] dark:from-white/10 via-transparent to-transparent opacity-60"></div>
                                     </div>
-                                </div>
-                            </ShineBorder>
+
+                                    <div className="p-6 flex flex-col flex-grow">
+                                        <div className="flex-grow space-y-3">
+                                            <div className="flex items-center gap-2">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                                                <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">{certificate.Category[0]}</span>
+                                            </div>
+                                            <h3 className="text-base font-bold text-white dark:text-gray-900 line-clamp-2 leading-snug group-hover:text-indigo-400 transition-colors duration-300 min-h-[3rem]">
+                                                {certificate.title}
+                                            </h3>
+                                            <p className="text-xs text-indigo-400/80 dark:text-indigo-600 font-medium italic uppercase tracking-wider line-clamp-1">
+                                                {certificate.Institute}
+                                            </p>
+                                        </div>
+
+                                        <div className="mt-8">
+                                            <Link
+                                                href={certificate.slug ? `/Education/${certificate.slug}` : '#'}
+                                                className={`group/btn w-full flex items-center justify-center gap-2 py-3 rounded-xl text-[10px] font-bold tracking-[0.2em] transition-all duration-300 uppercase
+                                                    ${certificate.slug
+                                                        ? 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-[0_5px_15px_rgba(79,70,229,0.3)]'
+                                                        : 'bg-white/5 dark:bg-black/5 text-slate-600 border border-white/5 dark:border-black/5 cursor-not-allowed'}`}
+                                            >
+                                                <FaEye className="group-hover:scale-110 transition-transform text-sm" />
+                                                <span>VIEW CREDENTIALS</span>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </MagicCard>
+                            </div>
                         ))
                     )}
                 </div>

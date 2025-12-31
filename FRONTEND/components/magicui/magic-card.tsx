@@ -51,13 +51,15 @@ export function MagicCard({
     >
       <div className="relative z-10">{children}</div>
       <motion.div
-        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background: useMotionTemplate`
-            radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)
-          `,
-          opacity: gradientOpacity,
-        }}
+        {...({
+          className: "pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100",
+          style: {
+            background: useMotionTemplate`
+              radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)
+            `,
+            opacity: gradientOpacity,
+          },
+        } as any)}
       />
     </div>
   );

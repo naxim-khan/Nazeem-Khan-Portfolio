@@ -1,10 +1,11 @@
 import axios from "axios";
 import Head from "next/head";
 import { useState } from "react";
-import { FaPhoneVolume } from 'react-icons/fa'
-import { FaGithub, FaTwitter } from "react-icons/fa6";
-import { GrLinkedin } from "react-icons/gr";
-import { MdAttachEmail } from 'react-icons/md'
+import { FaPhoneVolume, FaLinkedinIn, FaGithub, FaTwitter, FaFacebookF } from 'react-icons/fa'
+import { MdAttachEmail, MdMessage } from 'react-icons/md'
+import { GoProject } from 'react-icons/go'
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import { BorderBeam } from "@/components/magicui/border-beam";
 export default function contact() {
 
     const [name, setName] = useState('');
@@ -74,303 +75,142 @@ export default function contact() {
             <title>Contact us</title>
         </Head>
 
-        <div className="contactpage">
-            <div className="container_css">
-                <div className="contactformp">
-                    <div className="leftcontp">
-                        <h2>Get in touch</h2>
-                        <h2>Let's talk about your poject</h2>
-                        <p>Thinking about a new project, a problem to solve, or just want to connect? Let's do it!</p>
-                        <p>Use the form on this page or get in touch by other means.</p>
-                        <p>We love questions and feedback - and we're always happy to help!</p>
-                        <div className="leftsociinfo">
-                            <ul>
-                                <li><FaPhoneVolume /> <span>Phone: <a href="tel:+9234*********" target="_blank">+92-34*********</a></span></li>
-                                <li><MdAttachEmail /> <span>Email: <a href="mailto:nazeemkhanpk@gmail.com" target="_blank">nazeemkhanpk@gmail.com</a></span></li>
-                                <li><GrLinkedin /> <span>LinkedIn: <a href="https://www.linkedin.com/in/nazeemkhannk/" target="_blank">nazeemkhannk</a></span></li>
-                                <li><FaGithub /> <span>GitHub: <a href="https://github.com/naxim-khan" target="_blank">naxim-khan</a></span></li>
+        <div className="contactpage bg-black-100 dark:bg-[#dedddc] min-h-screen pt-32 pb-20 relative overflow-hidden">
+            <BackgroundBeams className="opacity-40" />
+            <div className="container_css px-5 relative z-10">
+                <div className="contactformp flex flex-col lg:flex-row bg-white/5 dark:bg-black/5 backdrop-blur-xl border border-white/10 dark:border-black/5 rounded-2xl overflow-hidden shadow-2xl relative">
+                    <BorderBeam size={400} duration={15} />
+
+                    <div className="leftcontp lg:w-1/3 p-10 lg:p-16 bg-indigo-600/5 border-r border-white/10 dark:border-black/5 flex flex-col justify-center">
+                        <div className="flex items-center gap-2 text-indigo-500 font-bold tracking-widest uppercase text-xs mb-6">
+                            <MdMessage className="text-lg" /> CONTACT ME
+                        </div>
+                        <h2 className="text-4xl lg:text-5xl font-bold text-white dark:text-gray-900 mb-4 leading-tight">Get in touch</h2>
+                        <h3 className="text-xl lg:text-2xl font-medium text-slate-300 dark:text-gray-700 mb-8">Let's talk about your project</h3>
+
+                        <div className="space-y-6 text-slate-400 dark:text-gray-600 leading-relaxed text-lg">
+                            <p>Thinking about a new project, a problem to solve, or just want to connect? Let's do it!</p>
+                            <p>I love questions and feedback - and I'm always happy to help!</p>
+                        </div>
+
+                        <div className="leftsociinfo mt-12 space-y-6">
+                            <ul className="space-y-4">
+                                <li className="flex items-center gap-4 group cursor-pointer hover:text-indigo-400 dark:hover:text-indigo-600 transition-colors">
+                                    <div className="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-500 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                                        <FaPhoneVolume />
+                                    </div>
+                                    <span className="text-sm font-medium"> <a href="tel:+9234*********" target="_blank" className="hover:underline">+92-34*********</a></span>
+                                </li>
+                                <li className="flex items-center gap-4 group cursor-pointer hover:text-indigo-400 dark:hover:text-indigo-600 transition-colors">
+                                    <div className="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-500 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                                        <MdAttachEmail />
+                                    </div>
+                                    <span className="text-sm font-medium"> <a href="mailto:nazeemkhanpk@gmail.com" target="_blank" className="hover:underline">nazeemkhanpk@gmail.com</a></span>
+                                </li>
                             </ul>
+
+                            <div className="flex gap-4 pt-6">
+                                {[
+                                    { icon: <FaGithub />, link: "https://github.com/naxim-khan" },
+                                    { icon: <FaLinkedinIn />, link: "https://www.linkedin.com/in/nazeemkhannk/" },
+                                    { icon: <FaTwitter />, link: "https://www.coursera.org/user/ed8917ae9cc8a33be8969325841526be" },
+                                    { icon: <FaFacebookF />, link: "https://www.facebook.com/nzm.khan.5245" }
+                                ].map((social, i) => (
+                                    <a key={i} href={social.link} target="_blank" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 dark:border-black/5 flex items-center justify-center text-slate-400 dark:text-gray-600 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 transition-all shadow-lg active:scale-90">
+                                        {social.icon}
+                                    </a>
+                                ))}
+                            </div>
                         </div>
                     </div>
 
-                    <div className="rightcontp">
-                        <form onSubmit={createProduct}>
-                            <div className="rightconttitle">
-                                <h2>Your Contact Information</h2>
-                            </div>
-                            <div className="rightcontinputs">
-                                <input type="text" value={name} onChange={ev => setName(ev.target.value)} placeholder="First Name" required />
-                                <input type="text" value={lname} onChange={ev => setLname(ev.target.value)} placeholder="Last Name" />
-                                <input type="email" value={email} onChange={ev => setEmail(ev.target.value)} placeholder="Email" required />
-                                <input type="text" value={company} onChange={ev => setCompany(ev.target.value)} placeholder="Company Name" required />
-                                <input type="number" value={phone} onChange={ev => setPhone(ev.target.value)} placeholder="Phone Number" required />
-
-                                <select
-                                    type="text"
-                                    value={country}
-                                    onChange={(e) => setCountry(e.target.value)}
-                                    placeholder="Country"
-                                    required
-                                    id="country"
-                                >
-                                    <option value="">Select Country</option>
-                                    <option value="Palestine">Palestine ❤</option>
-                                    <option value="Afghanistan">Afghanistan</option>
-                                    <option value="Albania">Albania</option>
-                                    <option value="Algeria">Algeria</option>
-                                    <option value="Andorra">Andorra</option>
-                                    <option value="Angola">Angola</option>
-                                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                    <option value="Argentina">Argentina</option>
-                                    <option value="Armenia">Armenia</option>
-                                    <option value="Australia">Australia</option>
-                                    <option value="Austria">Austria</option>
-                                    <option value="Azerbaijan">Azerbaijan</option>
-                                    <option value="Bahamas">Bahamas</option>
-                                    <option value="Bahrain">Bahrain</option>
-                                    <option value="Bangladesh">Bangladesh</option>
-                                    <option value="Barbados">Barbados</option>
-                                    <option value="Belarus">Belarus</option>
-                                    <option value="Belgium">Belgium</option>
-                                    <option value="Belize">Belize</option>
-                                    <option value="Benin">Benin</option>
-                                    <option value="Bhutan">Bhutan</option>
-                                    <option value="Bolivia">Bolivia</option>
-                                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                                    <option value="Botswana">Botswana</option>
-                                    <option value="Brazil">Brazil</option>
-                                    <option value="Brunei">Brunei</option>
-                                    <option value="Bulgaria">Bulgaria</option>
-                                    <option value="Burkina Faso">Burkina Faso</option>
-                                    <option value="Burundi">Burundi</option>
-                                    <option value="Cabo Verde">Cabo Verde</option>
-                                    <option value="Cambodia">Cambodia</option>
-                                    <option value="Cameroon">Cameroon</option>
-                                    <option value="Canada">Canada</option>
-                                    <option value="Central African Republic">Central African Republic</option>
-                                    <option value="Chad">Chad</option>
-                                    <option value="Chile">Chile</option>
-                                    <option value="China">China</option>
-                                    <option value="Colombia">Colombia</option>
-                                    <option value="Comoros">Comoros</option>
-                                    <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
-                                    <option value="Costa Rica">Costa Rica</option>
-                                    <option value="Croatia">Croatia</option>
-                                    <option value="Cuba">Cuba</option>
-                                    <option value="Cyprus">Cyprus</option>
-                                    <option value="Czechia (Czech Republic)">Czechia (Czech Republic)</option>
-                                    <option value="Denmark">Denmark</option>
-                                    <option value="Djibouti">Djibouti</option>
-                                    <option value="Dominica">Dominica</option>
-                                    <option value="Dominican Republic">Dominican Republic</option>
-                                    <option value="Ecuador">Ecuador</option>
-                                    <option value="Egypt">Egypt</option>
-                                    <option value="El Salvador">El Salvador</option>
-                                    <option value="Equatorial Guinea">Equatorial Guinea</option>
-                                    <option value="Eritrea">Eritrea</option>
-                                    <option value="Estonia">Estonia</option>
-                                    <option value="Eswatini">Eswatini</option>
-                                    <option value="Ethiopia">Ethiopia</option>
-                                    <option value="Fiji">Fiji</option>
-                                    <option value="Finland">Finland</option>
-                                    <option value="France">France</option>
-                                    <option value="Gabon">Gabon</option>
-                                    <option value="Gambia">Gambia</option>
-                                    <option value="Georgia">Georgia</option>
-                                    <option value="Germany">Germany</option>
-                                    <option value="Ghana">Ghana</option>
-                                    <option value="Greece">Greece</option>
-                                    <option value="Grenada">Grenada</option>
-                                    <option value="Guatemala">Guatemala</option>
-                                    <option value="Guinea">Guinea</option>
-                                    <option value="Guinea-Bissau">Guinea-Bissau</option>
-                                    <option value="Guyana">Guyana</option>
-                                    <option value="Haiti">Haiti</option>
-                                    <option value="Honduras">Honduras</option>
-                                    <option value="Hungary">Hungary</option>
-                                    <option value="Iceland">Iceland</option>
-                                    <option value="India">India</option>
-                                    <option value="Indonesia">Indonesia</option>
-                                    <option value="Iran">Iran</option>
-                                    <option value="Iraq">Iraq</option>
-                                    <option value="Ireland">Ireland</option>
-                                    <option value="Italy">Italy</option>
-                                    <option value="Jamaica">Jamaica</option>
-                                    <option value="Japan">Japan</option>
-                                    <option value="Jordan">Jordan</option>
-                                    <option value="Kazakhstan">Kazakhstan</option>
-                                    <option value="Kenya">Kenya</option>
-                                    <option value="Kiribati">Kiribati</option>
-                                    <option value="Kuwait">Kuwait</option>
-                                    <option value="Kyrgyzstan">Kyrgyzstan</option>
-                                    <option value="Laos">Laos</option>
-                                    <option value="Latvia">Latvia</option>
-                                    <option value="Lebanon">Lebanon</option>
-                                    <option value="Lesotho">Lesotho</option>
-                                    <option value="Liberia">Liberia</option>
-                                    <option value="Libya">Libya</option>
-                                    <option value="Liechtenstein">Liechtenstein</option>
-                                    <option value="Lithuania">Lithuania</option>
-                                    <option value="Luxembourg">Luxembourg</option>
-                                    <option value="Madagascar">Madagascar</option>
-                                    <option value="Malawi">Malawi</option>
-                                    <option value="Malaysia">Malaysia</option>
-                                    <option value="Maldives">Maldives</option>
-                                    <option value="Mali">Mali</option>
-                                    <option value="Malta">Malta</option>
-                                    <option value="Marshall Islands">Marshall Islands</option>
-                                    <option value="Mauritania">Mauritania</option>
-                                    <option value="Mauritius">Mauritius</option>
-                                    <option value="Mexico">Mexico</option>
-                                    <option value="Micronesia">Micronesia</option>
-                                    <option value="Moldova">Moldova</option>
-                                    <option value="Monaco">Monaco</option>
-                                    <option value="Mongolia">Mongolia</option>
-                                    <option value="Montenegro">Montenegro</option>
-                                    <option value="Morocco">Morocco</option>
-                                    <option value="Mozambique">Mozambique</option>
-                                    <option value="Myanmar">Myanmar</option>
-                                    <option value="Namibia">Namibia</option>
-                                    <option value="Nauru">Nauru</option>
-                                    <option value="Nepal">Nepal</option>
-                                    <option value="Netherlands">Netherlands</option>
-                                    <option value="New Zealand">New Zealand</option>
-                                    <option value="Nicaragua">Nicaragua</option>
-                                    <option value="Niger">Niger</option>
-                                    <option value="Nigeria">Nigeria</option>
-                                    <option value="North Korea">North Korea</option>
-                                    <option value="North Macedonia">North Macedonia</option>
-                                    <option value="Norway">Norway</option>
-                                    <option value="Oman">Oman</option>
-                                    <option value="Pakistan">Pakistan</option>
-                                    <option value="Palau">Palau</option>
-                                    <option value="Palestine">Palestine</option>
-                                    <option value="Panama">Panama</option>
-                                    <option value="Papua New Guinea">Papua New Guinea</option>
-                                    <option value="Paraguay">Paraguay</option>
-                                    <option value="Peru">Peru</option>
-                                    <option value="Philippines">Philippines</option>
-                                    <option value="Poland">Poland</option>
-                                    <option value="Portugal">Portugal</option>
-                                    <option value="Qatar">Qatar</option>
-                                    <option value="Romania">Romania</option>
-                                    <option value="Russia">Russia</option>
-                                    <option value="Rwanda">Rwanda</option>
-                                    <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-                                    <option value="Saint Lucia">Saint Lucia</option>
-                                    <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
-                                    <option value="Samoa">Samoa</option>
-                                    <option value="San Marino">San Marino</option>
-                                    <option value="Sao Tome and Principe">Sao Tome and Principe</option>
-                                    <option value="Saudi Arabia">Saudi Arabia</option>
-                                    <option value="Senegal">Senegal</option>
-                                    <option value="Serbia">Serbia</option>
-                                    <option value="Seychelles">Seychelles</option>
-                                    <option value="Sierra Leone">Sierra Leone</option>
-                                    <option value="Singapore">Singapore</option>
-                                    <option value="Slovakia">Slovakia</option>
-                                    <option value="Slovenia">Slovenia</option>
-                                    <option value="Solomon Islands">Solomon Islands</option>
-                                    <option value="Somalia">Somalia</option>
-                                    <option value="South Africa">South Africa</option>
-                                    <option value="South Korea">South Korea</option>
-                                    <option value="South Sudan">South Sudan</option>
-                                    <option value="Spain">Spain</option>
-                                    <option value="Sri Lanka">Sri Lanka</option>
-                                    <option value="Sudan">Sudan</option>
-                                    <option value="Suriname">Suriname</option>
-                                    <option value="Sweden">Sweden</option>
-                                    <option value="Switzerland">Switzerland</option>
-                                    <option value="Syria">Syria</option>
-                                    <option value="Taiwan">Taiwan</option>
-                                    <option value="Tajikistan">Tajikistan</option>
-                                    <option value="Tanzania">Tanzania</option>
-                                    <option value="Thailand">Thailand</option>
-                                    <option value="Timor-Leste">Timor-Leste</option>
-                                    <option value="Togo">Togo</option>
-                                    <option value="Tonga">Tonga</option>
-                                    <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                                    <option value="Tunisia">Tunisia</option>
-                                    <option value="Turkey">Turkey</option>
-                                    <option value="Turkmenistan">Turkmenistan</option>
-                                    <option value="Tuvalu">Tuvalu</option>
-                                    <option value="Uganda">Uganda</option>
-                                    <option value="Ukraine">Ukraine</option>
-                                    <option value="United Arab Emirates">United Arab Emirates</option>
-                                    <option value="United Kingdom">United Kingdom</option>
-                                    <option value="United States">United States</option>
-                                    <option value="Uruguay">Uruguay</option>
-                                    <option value="Uzbekistan">Uzbekistan</option>
-                                    <option value="Vanuatu">Vanuatu</option>
-                                    <option value="Vatican City">Vatican City</option>
-                                    <option value="Venezuela">Venezuela</option>
-                                    <option value="Vietnam">Vietnam</option>
-                                    <option value="Yemen">Yemen</option>
-                                    <option value="Zambia">Zambia</option>
-                                    <option value="Zimbabwe">Zimbabwe</option>
-                                </select>
+                    <div className="rightcontp lg:w-2/3 p-10 lg:p-16">
+                        <form onSubmit={createProduct} className="space-y-10">
+                            <div className="space-y-6">
+                                <h3 className="text-2xl font-bold text-white dark:text-gray-900 border-b border-indigo-500/20 pb-4">Personal Details</h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <input type="text" value={name} onChange={ev => setName(ev.target.value)} placeholder="First Name" required className="w-full bg-white/5 dark:bg-black/5 border border-white/10 dark:border-black/5 rounded-xl px-4 py-3 text-white dark:text-gray-900 outline-none focus:border-indigo-500/50 transition-all placeholder:text-slate-500" />
+                                    <input type="text" value={lname} onChange={ev => setLname(ev.target.value)} placeholder="Last Name" className="w-full bg-white/5 dark:bg-black/5 border border-white/10 dark:border-black/5 rounded-xl px-4 py-3 text-white dark:text-gray-900 outline-none focus:border-indigo-500/50 transition-all placeholder:text-slate-500" />
+                                    <input type="email" value={email} onChange={ev => setEmail(ev.target.value)} placeholder="Email Address" required className="w-full bg-white/5 dark:bg-black/5 border border-white/10 dark:border-black/5 rounded-xl px-4 py-3 text-white dark:text-gray-900 outline-none focus:border-indigo-500/50 transition-all placeholder:text-slate-500" />
+                                    <input type="text" value={company} onChange={ev => setCompany(ev.target.value)} placeholder="Company Name" className="w-full bg-white/5 dark:bg-black/5 border border-white/10 dark:border-black/5 rounded-xl px-4 py-3 text-white dark:text-gray-900 outline-none focus:border-indigo-500/50 transition-all placeholder:text-slate-500" />
+                                    <input type="number" value={phone} onChange={ev => setPhone(ev.target.value)} placeholder="Phone Number" required className="w-full bg-white/5 dark:bg-black/5 border border-white/10 dark:border-black/5 rounded-xl px-4 py-3 text-white dark:text-gray-900 outline-none focus:border-indigo-500/50 transition-all placeholder:text-slate-500" />
+                                    <select
+                                        value={country}
+                                        onChange={(e) => setCountry(e.target.value)}
+                                        required
+                                        className="w-full bg-white/5 dark:bg-black/5 border border-white/10 dark:border-black/5 rounded-xl px-4 py-3 text-white dark:text-gray-900 outline-none focus:border-indigo-500/50 transition-all"
+                                    >
+                                        <option value="" className="bg-gray-900 text-white">Select Country</option>
+                                        <option value="Palestine" className="bg-gray-900">Palestine ❤</option>
+                                        <option value="Pakistan" className="bg-gray-900">Pakistan</option>
+                                        <option value="United States" className="bg-gray-900">United States</option>
+                                        <option value="United Kingdom" className="bg-gray-900">United Kingdom</option>
+                                        <option value="Germany" className="bg-gray-900">Germany</option>
+                                        <option value="India" className="bg-gray-900">India</option>
+                                        <option value="Canada" className="bg-gray-900">Canada</option>
+                                        <option value="Australia" className="bg-gray-900">Australia</option>
+                                    </select>
+                                </div>
                             </div>
 
-                            <div className="rightconttitle">
-                                <h2>What Services do you need for your Project?</h2>
+                            <div className="space-y-6">
+                                <h3 className="text-2xl font-bold text-white dark:text-gray-900 border-b border-indigo-500/20 pb-4">Services Required</h3>
+                                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                    {[
+                                        'Website Development',
+                                        'WebApp Development',
+                                        'App Development',
+                                        'API Development',
+                                        'Website Migration',
+                                        'E-Commerce Site'
+                                    ].map((projectOption) => (
+                                        <label key={projectOption} className={`flex items-center gap-3 p-4 rounded-xl border transition-all cursor-pointer ${project.includes(projectOption) ? 'bg-indigo-600/10 border-indigo-500 text-indigo-400' : 'bg-white/5 dark:bg-black/5 border-white/10 dark:border-black/5 text-slate-400 dark:text-gray-600 hover:border-indigo-500/50'}`}>
+                                            <input
+                                                type="checkbox"
+                                                className="hidden"
+                                                value={projectOption}
+                                                checked={project.includes(projectOption)}
+                                                onChange={() => handleProjectChange(projectOption)}
+                                            />
+                                            <span className="text-sm font-medium">{projectOption}</span>
+                                        </label>
+                                    ))}
+                                </div>
                             </div>
 
-                            <div className="rightcontcheckbox">
-                                {[
-                                    'Website Development',
-                                    'WebApp Development',
-                                    'App Development',
-                                    'API Development',
-                                    'Website Migration',
-                                    'E-Commerce Site',
-                                    'Performance Evaluation'
-                                ].map((projectOption) => (
-                                    <label key={projectOption} className="cyberpunk-checkbox-label">
-                                        <input
-                                            type="checkbox"
-                                            className="cyberpunk-checkbox"
-                                            value={projectOption}
-                                            checked={project.includes(projectOption)}
-                                            onChange={() => handleProjectChange(projectOption)}
-                                        />
-                                        {projectOption}  {/* Add label text here for clarity */}
-                                    </label>
-                                ))}
+                            <div className="space-y-6">
+                                <h3 className="text-2xl font-bold text-white dark:text-gray-900 border-b border-indigo-500/20 pb-4">Project Budget</h3>
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    {['Less than $300', '$300 - $700', '$700 - $1000', 'More than $1000'].map((priceRange) => (
+                                        <label key={priceRange} className={`flex items-center justify-center p-4 rounded-xl border transition-all cursor-pointer text-center ${price === priceRange ? 'bg-indigo-600/10 border-indigo-500 text-indigo-400 shadow-lg shadow-indigo-500/10' : 'bg-white/5 dark:bg-black/5 border-white/10 dark:border-black/5 text-slate-400 dark:text-gray-600 hover:border-indigo-500/50'}`}>
+                                            <input
+                                                type="radio"
+                                                className="hidden"
+                                                name="price"
+                                                value={priceRange}
+                                                checked={price === priceRange}
+                                                onChange={handlePriceChange}
+                                            />
+                                            <span className="text-sm font-medium">{priceRange}</span>
+                                        </label>
+                                    ))}
+                                </div>
                             </div>
 
+                            <div className="space-y-6">
+                                <h3 className="text-2xl font-bold text-white dark:text-gray-900 border-b border-indigo-500/20 pb-4">Project Story</h3>
+                                <textarea name="description" value={description} onChange={ev => setDescription(ev.target.value)} rows={4} placeholder="Tell me about your vision, goals, and any specific requirements..." className="w-full bg-white/5 dark:bg-black/5 border border-white/10 dark:border-black/5 rounded-xl px-4 py-3 text-white dark:text-gray-900 outline-none focus:border-indigo-500/50 transition-all placeholder:text-slate-500" />
+                            </div>
 
-
-                            <div className="rightconttitle">
-                                <h2>How much is the anticipated budget for your next project?</h2>
-                            </div>
-                            <div className="rightcontredio">
-                                {
-                                    ['Less than $300', '$300 - $700', '$700 - $1000', 'More than $1000'].map(
-                                        (priceRange) => (
-                                            <div className="radio-button" key={priceRange}>
-                                                <input
-                                                    type="radio"
-                                                    className="radio"
-                                                    id={priceRange}
-                                                    name="price"
-                                                    value={priceRange}
-                                                    checked={price === priceRange}
-                                                    onChange={handlePriceChange}
-                                                />
-                                                <label htmlFor={priceRange}>{priceRange}</label>
-                                            </div>
-                                        ))}
-                            </div>
-                            <div className="rightconttitle">
-                                <h2>Tell me about your project</h2>
-                            </div>
-                            <div className="rightcontpera">
-                                <textarea name="description" value={description} onChange={ev => setDescription(ev.target.value)} rows={4} placeholder="Project Details"></textarea>
-                            </div>
-                            <hr/>
-                            <div className="righhcontsbtn flex gap-3">
-                                <button type="submit">Submit</button>
-                                <p>{messageOk}</p>
+                            <div className="flex flex-col sm:flex-row items-center gap-6 pt-6">
+                                <button type="submit" className="w-full sm:w-auto px-10 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-xl shadow-indigo-600/20 active:scale-95 flex items-center justify-center gap-2">
+                                    Send Message <GoProject className="animate-pulse" />
+                                </button>
+                                {messageOk && (
+                                    <p className={`text-sm font-medium ${messageOk.includes('successfully') ? 'text-green-400' : 'text-indigo-400 animate-pulse'}`}>
+                                        {messageOk}
+                                    </p>
+                                )}
                             </div>
                         </form>
                     </div>

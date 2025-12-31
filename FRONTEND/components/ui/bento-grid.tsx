@@ -63,7 +63,7 @@ export const BentoGridItem = ({
     if (deviceMemory > 2) {
       setCanRender3D(true); // Allow rendering 3D if memory > 2GB
     }
-  }, []);  
+  }, []);
 
   const handleCopy = () => {
     const text = "nazeemkhanpk@gmail.com";
