@@ -115,7 +115,7 @@ export default function EducationPage() {
                                         duration={10}
                                         borderRadius={12}
                                     >
-                                        <Link href={`/Education/${data.slug}`} className="w-full block">
+                                        <Link href={`/education/${data.slug}`} className="w-full block">
                                             <img
                                                 src={data.images[0]}
                                                 className="w-full aspect-video object-cover transition-transform duration-700 hover:scale-105"

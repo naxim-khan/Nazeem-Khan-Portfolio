@@ -81,7 +81,7 @@ export default function EducationSlug() {
                 <div className="max-w-7xl mx-auto">
                     {/* Back Button */}
                     <Link
-                        href="/Education"
+                        href="/education"
                         className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-indigo-400 mb-12 transition-colors uppercase tracking-widest group"
                     >
                         <FaArrowLeft className="group-hover:-translate-x-1 transition-transform" />

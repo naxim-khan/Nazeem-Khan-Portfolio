@@ -107,7 +107,7 @@ const Certificates = () => {
 
                                         <div className="mt-8">
                                             <Link
-                                                href={certificate.slug ? `/Education/${certificate.slug}` : '#'}
+                                                href={certificate.slug ? `/education/${certificate.slug}` : '#'}
                                                 className={`group/btn w-full flex items-center justify-center gap-2 py-3 rounded-xl text-[10px] font-bold tracking-[0.2em] transition-all duration-300 uppercase
                                                     ${certificate.slug
                                                         ? 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-[0_5px_15px_rgba(79,70,229,0.3)]'

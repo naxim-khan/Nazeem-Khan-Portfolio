@@ -100,7 +100,7 @@ export const AnimatedTestimonials = ({ autoplay = false }: { autoplay?: boolean 
                     className: "absolute inset-0 origin-bottom flex items-center justify-center max-sm:w-full",
                   } as any)}
                 >
-                  <Link href={`/Education/${testimonial.slug}`}>
+                  <Link href={`/education/${testimonial.slug}`}>
                     <Image
                       src={testimonial.src}
                       alt={testimonial.name}
